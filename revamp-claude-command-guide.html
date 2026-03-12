@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clozd Sales | Claude Command Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --patina:    #09D4C8;
+  --blue:      #14A6F8;
+  --royal:     #274FDB;
+  --charcoal:  #1F2528;
+  --black:     #000000;
+  --body:      #3D464D;
+  --muted:     #6B757C;
+  --border:    #E4E7EA;
+  --surface:   #F7F8F9;
+  --white:     #FFFFFF;
+  --green:     #00C371;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--white);
+  color: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#getting-started,
+#how-it-works,
+#workflows,
+#power-moves,
+#tips {
+  scroll-margin-top: 96px;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(39,79,219,0.08);
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo img { height: 28px; display: block; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 24px;
+}
+.nav-link {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--royal);
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(39,79,219,0.14);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(39,79,219,0.06);
+  transition: background .2s, color .2s, border-color .2s, box-shadow .2s;
+}
+.nav-link:hover {
+  color: var(--blue);
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(20,166,248,0.22);
+  box-shadow: 0 4px 14px rgba(20,166,248,0.10);
+}
+.nav-link.active {
+  color: var(--blue);
+  background: rgba(20,166,248,0.10);
+  border-color: rgba(20,166,248,0.20);
+  box-shadow: 0 4px 14px rgba(20,166,248,0.08);
+}
+.nav-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--muted);
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(31,37,40,0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+.nav-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #0A9E95;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(9,212,200,0.22);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(6px);
+}
+.nav-tag::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--patina);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+  background: linear-gradient(180deg, #eef7fb 0%, #f7fbff 72%, #ffffff 100%);
+  background-image: url('slide-bg/hero-dark.png');
+  background-size: cover;
+  background-position: center center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.34) 45%,
+      rgba(255,255,255,0.72) 100%
+    ),
+    linear-gradient(
+      100deg,
+      rgba(255,255,255,0.28) 0%,
+      rgba(255,255,255,0.10) 55%,
+      rgba(255,255,255,0.00) 100%
+    );
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 96px 48px 110px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--charcoal);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  margin-bottom: 20px;
+  max-width: 820px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--patina) 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 19px;
+  color: rgba(31, 37, 40, 0.72);
+  max-width: 760px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(39,79,219,0.10);
+  color: rgba(31,37,40,0.78);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+.pill::before {
+  content: "✓";
+  font-size: 10px;
+  color: var(--patina);
+}
+
+/* ─────────────────────────────────────────
+   MAIN WRAPPER
+───────────────────────────────────────── */
+.main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.quick-start {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: -34px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+}
+.quick-card {
+  background: rgba(255,255,255,0.94);
+  border: 1px solid rgba(39,79,219,0.10);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 6px 24px rgba(20,166,248,0.06);
+}
+.quick-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.quick-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   SECTION HEADERS
+───────────────────────────────────────── */
+.section-block {
+  padding-top: 72px;
+  padding-bottom: 32px;
+}
+.section-block.tight { padding-top: 48px; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.5px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+/* subsection headers inside a card area */
+.subsection-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  margin-top: 48px;
+}
+.subsection-head h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -.2px;
+}
+.subsection-pip {
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--patina), var(--blue));
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   HOW TO ACCESS
+───────────────────────────────────────── */
+.access-section {
+  margin-top: 56px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(20,166,248,0.08);
+}
+.access-banner {
+  position: relative;
+  background: var(--white);
+  background-image: url('slide-bg/wave-top-right.png');
+  background-size: cover;
+  background-position: center;
+  padding: 40px 40px 36px;
+  border-bottom: 1px solid var(--border);
+}
+.access-banner-inner {
+  max-width: 680px;
+}
+.access-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 10px;
+}
+.access-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 14px;
+}
+.access-banner p {
+  font-size: 17px;
+  color: var(--body);
+  line-height: 1.75;
+}
+.access-body {
+  background: var(--white);
+  padding: 32px 40px 36px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 760px) { .access-body { grid-template-columns: 1fr; } }
+
+.access-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.step-list { display: grid; gap: 12px; }
+.step-item { display: flex; gap: 12px; align-items: flex-start; }
+.step-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(9,212,200,0.12);
+  border: 1.5px solid rgba(9,212,200,0.3);
+  color: #059E94;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--body);
+  padding-top: 2px;
+}
+.launch-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.launch-list li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--body);
+  padding-left: 20px;
+  position: relative;
+}
+.launch-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--patina);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.prompt-examples {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.prompt-examples-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.prompt-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.prompt-chip {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--white);
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.prompt-chip .accent { color: var(--patina); }
+.prompt-chip.blue-accent { border-left: 3px solid var(--blue); }
+.prompt-chip.royal-accent { border-left: 3px solid var(--royal); }
+.prompt-chip.teal-accent  { border-left: 3px solid var(--patina); }
+
+/* ─────────────────────────────────────────
+   HOW IT WORKS
+───────────────────────────────────────── */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 680px) { .how-grid { grid-template-columns: 1fr; } }
+
+.how-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.how-card:hover {
+  border-color: rgba(20,166,248,0.4);
+  box-shadow: 0 4px 24px rgba(20,166,248,0.08);
+}
+.how-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.how-card:nth-child(1)::before { background: linear-gradient(90deg, var(--patina), var(--blue)); }
+.how-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue), var(--royal)); }
+.how-card:nth-child(3)::before { background: linear-gradient(90deg, var(--royal), var(--blue)); }
+
+.how-step-num {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--patina), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.how-card h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+  letter-spacing: -.1px;
+}
+.how-card p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   WORKFLOW CARDS
+───────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 680px) { .card-grid { grid-template-columns: 1fr; } }
+
+.wf-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s, transform .18s;
+}
+.wf-card:hover {
+  border-color: rgba(9,212,200,0.4);
+  box-shadow: 0 6px 32px rgba(9,212,200,0.1);
+  transform: translateY(-2px);
+}
+.wf-accent { height: 4px; }
+.wf-accent.teal  { background: linear-gradient(90deg, var(--patina), var(--blue)); }
+.wf-accent.blue  { background: linear-gradient(90deg, var(--blue), var(--patina)); }
+.wf-accent.royal { background: linear-gradient(90deg, var(--royal), var(--blue)); }
+.wf-accent.mixed { background: linear-gradient(90deg, var(--patina), var(--royal)); }
+
+.wf-body { padding: 26px 28px 28px; }
+
+.wf-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 14px;
+}
+.wf-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.wf-icon img { width: 28px; height: 28px; object-fit: contain; }
+
+.wf-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -.1px;
+  line-height: 1.3;
+}
+.placeholder-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.wf-desc {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* Prompt examples inside card */
+.wf-prompts {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.wf-prompts-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.wf-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.wf-chip {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  background: var(--white);
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.wf-chip.t { border-left: 3px solid var(--patina); }
+.wf-chip.b { border-left: 3px solid var(--blue); }
+.wf-chip.r { border-left: 3px solid var(--royal); }
+
+/* Output tags */
+.wf-tags-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.wf-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 5px;
+}
+.tag.teal  { background: rgba(9,212,200,0.09);  color: #077E79;  border: 1px solid rgba(9,212,200,0.22); }
+.tag.blue  { background: rgba(20,166,248,0.09);  color: #0A74B8;  border: 1px solid rgba(20,166,248,0.22); }
+.tag.royal { background: rgba(39,79,219,0.09);   color: #1D3BB0;  border: 1px solid rgba(39,79,219,0.2); }
+
+/* Featured card */
+.wf-card.featured {
+  background: var(--white);
+  border-color: var(--border);
+}
+.wf-card.featured .wf-title { color: var(--black); }
+.wf-card.featured .wf-icon  { background: var(--surface); border-color: var(--border); }
+.wf-card.featured .wf-prompts { background: var(--surface); }
+
+/* ─────────────────────────────────────────
+   COMBINE WORKFLOWS
+───────────────────────────────────────── */
+.chain-section {
+  margin-top: 72px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(20,166,248,0.07);
+}
+.chain-banner {
+  background-image: url('slide-bg/wave-teal-sweep.png');
+  background-size: cover;
+  background-position: center top;
+  padding: 40px 40px 36px;
+  border-bottom: 1px solid var(--border);
+}
+.chain-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 10px;
+}
+.chain-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 12px;
+}
+.chain-banner p {
+  font-size: 17px;
+  color: var(--body);
+  max-width: 700px;
+  line-height: 1.75;
+}
+.chain-body {
+  background: var(--white);
+  padding: 32px 40px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 720px) { .chain-body { grid-template-columns: 1fr; } }
+
+.flow-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px 20px;
+  transition: border-color .2s;
+}
+.flow-card:hover { border-color: rgba(20,166,248,0.35); }
+.flow-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  letter-spacing: -.1px;
+}
+.flow-card > p {
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.flow-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.flow-chip {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--white);
+  color: var(--royal);
+  border: 1px solid rgba(39,79,219,0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.flow-arrow {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 15px;
+}
+.flow-example {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+/* ─────────────────────────────────────────
+   TIPS
+───────────────────────────────────────── */
+.tips-section {
+  margin-top: 72px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url('slide-bg/wave-deep-bottom.png');
+  background-size: cover;
+  background-position: center bottom;
+  box-shadow: 0 8px 40px rgba(20,166,248,0.15);
+}
+.tips-inner {
+  background: linear-gradient(160deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 50%, rgba(255,255,255,0.75) 100%);
+  padding: 48px 48px 52px;
+}
+.tips-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.tips-head-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(9,212,200,0.12);
+  border: 1px solid rgba(9,212,200,0.25);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.tips-head-icon img { width: 24px; height: 24px; object-fit: contain; }
+.tips-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 6px;
+}
+.tips-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 32px;
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 620px) { .tips-grid { grid-template-columns: 1fr; } }
+
+.tip {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 20px 20px 20px;
+  backdrop-filter: blur(4px);
+}
+.tip-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--patina), var(--blue));
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(9,212,200,0.3);
+}
+.tip-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.tip-body p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.footer {
+  background: var(--charcoal);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 80px;
+}
+.footer-logo img {
+  height: 24px;
+  display: block;
+  opacity: 0.9;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+.footer-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(9,212,200,0.7);
+  background: rgba(9,212,200,0.08);
+  border: 1px solid rgba(9,212,200,0.2);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.footer-top-link {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+}
+.footer-top-link:hover {
+  color: var(--patina);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 980px) {
+  .nav {
+    padding: 0 20px;
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .nav-right {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-content {
+    padding: 88px 24px 72px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+  }
+
+  .main {
+    padding: 0 20px 64px;
+  }
+
+  .quick-start {
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+  }
+
+  .access-banner,
+  .access-body,
+  .chain-banner,
+  .chain-body,
+  .tips-inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .wf-body {
+    padding: 22px 22px 24px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .subsection-head h3 {
+    font-size: 21px;
+  }
+}
+
+@media print {
+  .hero, .tips-section, .chain-banner, .access-banner {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd" />
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a class="nav-link" href="#getting-started">Getting started</a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+      <a class="nav-link" href="#workflows">Workflows</a>
+      <a class="nav-link" href="#power-moves">Power moves</a>
+      <a class="nav-link" href="#tips">Tips</a>
+    </div>
+    <span class="nav-tag">Claude Sales Plugin</span>
+    <span class="nav-badge">Internal use only</span>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Claude <em>Command Guide</em></h1>
+    <p class="hero-sub">A practical guide to Clozd's seller workflows in Claude. Research accounts, prep calls, coach deals, and turn insight into polished deliverables — from a single chat.</p>
+    <div class="hero-pills">
+      <span class="pill">Claude desktop + Cowork</span>
+      <span class="pill">Slash commands + natural language</span>
+      <span class="pill">Clozd Sales plugin</span>
+      <span class="pill">Branded deliverables</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<div class="main">
+
+  <div class="quick-start">
+    <div class="quick-card">
+      <h4>New prospect?</h4>
+      <p>Start with <strong>account-research</strong> to get fast account context and outreach angles.</p>
+    </div>
+    <div class="quick-card">
+      <h4>Big meeting coming up?</h4>
+      <p>Start with <strong>call-prep</strong> to get attendee context, agenda ideas, and sharper questions.</p>
+    </div>
+    <div class="quick-card">
+      <h4>Need something customer-ready?</h4>
+      <p>Start with <strong>create-an-asset</strong> and then apply Clozd design standards.</p>
+    </div>
+  </div>
+
+  <!-- ── HOW TO ACCESS ── -->
+  <div class="access-section" id="getting-started">
+    <div class="access-banner">
+      <div class="access-banner-inner">
+        <div class="access-banner-label">Getting started</div>
+        <h2>How to access Clozd workflows</h2>
+        <p>Open the Claude desktop app and click <strong>Cowork</strong> in the top nav. From there, launch any Clozd Sales workflow in seconds — via the plugin menu, a slash command, or plain English.</p>
+      </div>
+    </div>
+    <div class="access-body">
+      <div>
+        <div class="access-col-label">Plugin path — step by step</div>
+        <div class="step-list">
+          <div class="step-item"><div class="step-num">1</div><p>Open <strong>Claude desktop</strong> and click <strong>Cowork</strong>.</p></div>
+          <div class="step-item"><div class="step-num">2</div><p>Click the <strong>+</strong> button in the chat box.</p></div>
+          <div class="step-item"><div class="step-num">3</div><p>Hover over <strong>Plugins</strong>.</p></div>
+          <div class="step-item"><div class="step-num">4</div><p>Hover over <strong>Clozd Sales</strong>.</p></div>
+          <div class="step-item"><div class="step-num">5</div><p>Select the workflow you want to run.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="access-col-label">Three ways to launch any workflow</div>
+        <ul class="launch-list">
+          <li><strong>Plugin menu</strong> — Open the Clozd Sales plugin in Cowork and pick your workflow.</li>
+          <li><strong>Slash commands</strong> — Type <strong>/</strong> in the chat box and select from the list.</li>
+          <li><strong>Natural language</strong> — Describe what you need in plain English. Claude matches the right workflow automatically.</li>
+        </ul>
+        <div class="prompt-examples">
+          <div class="prompt-examples-label">Try prompts like</div>
+          <div class="prompt-chips">
+            <span class="prompt-chip teal-accent">Research Gong before my meeting</span>
+            <span class="prompt-chip blue-accent">Prep me for my call with Adobe</span>
+            <span class="prompt-chip royal-accent">Build a Clozd-branded deck</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <div class="section-block" id="how-it-works">
+    <div class="section-eyebrow">Process</div>
+    <div class="section-title">How it works</div>
+    <div class="section-sub">Three steps. Any workflow. Start wherever makes sense for the job at hand.</div>
+  </div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-step-num">01</div>
+      <h4>Pick the workflow</h4>
+      <p>Launch from the Clozd Sales plugin, type <strong>/</strong> in the chat, or just describe what you need in natural language.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-step-num">02</div>
+      <h4>Give Claude the context</h4>
+      <p>Start with the account, meeting, deal, or asset you care about. More context means sharper, more useful output.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-step-num">03</div>
+      <h4>Build on the result</h4>
+      <p>Ask Claude to refine, extend, or turn the output into a branded deliverable — without starting over.</p>
+    </div>
+  </div>
+
+  <!-- ── WHAT CLAUDE CAN DO ── -->
+  <div class="section-block" id="workflows">
+    <div class="section-eyebrow">Workflows</div>
+    <div class="section-title">What Claude can help you do</div>
+    <div class="section-sub">Every workflow in the Clozd Sales plugin, with example prompts and what you'll walk away with.</div>
+  </div>
+
+  <!-- PROSPECTING -->
+  <div class="subsection-head">
+    <div class="subsection-pip"></div>
+    <h3>Prospecting &amp; Account Intelligence</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Research copy.png" alt=""></div>
+          <div class="wf-title">account-research</div>
+        </div>
+        <p class="wf-desc">Research a company or person and surface actionable sales intel — business overview, recent news, leadership context, buying signals, and recommended outreach angles.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip b">research Databricks</span>
+            <span class="wf-chip b">look up the CRO at Notion</span>
+            <span class="wf-chip b">tell me about Ramp before my call</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Fast account context</span>
+          <span class="tag blue">Prospect research</span>
+          <span class="tag blue">Better outreach angles</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent mixed"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Target copy.png" alt=""></div>
+          <div class="wf-title">profiling-prospects</div>
+        </div>
+        <p class="wf-desc">Turn a target account into a credible Clozd proposal with company research, buyer-pool sizing, phased rollout logic, and ROI modeling. A smart conversation starter, not a binding quote.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">profile Adobe as a Clozd prospect</span>
+            <span class="wf-chip r">build a Clozd proposal for HubSpot</span>
+            <span class="wf-chip r">recommend a phased win-loss program for ServiceNow</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag royal">Narrative brief</span>
+          <span class="tag royal">Sizing model</span>
+          <span class="tag royal">Phased ROI logic</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent royal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Lightbulb 2 copy.png" alt=""></div>
+          <div class="wf-title">researching-executive-insights</div>
+        </div>
+        <p class="wf-desc">Create an outside-in executive brief that highlights market shifts, competitive moves, buyer friction, and visibility gaps for senior leaders — grounded in recent public evidence.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip r">build an executive insight brief for Snowflake</span>
+            <span class="wf-chip r">what should a CRO care about at Asana right now</span>
+            <span class="wf-chip r">give me an outside-in POV on Zoom</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag royal">Executive outreach</span>
+          <span class="tag royal">Leadership prep</span>
+          <span class="tag royal">Sharper POVs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent teal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Strategy copy.png" alt=""></div>
+          <div class="wf-title">competitive-intelligence</div>
+        </div>
+        <p class="wf-desc">Research competitors and build a battlecard with positioning, recent releases, differentiation, pricing context, talk tracks, objection handling, and landmine questions.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">battlecard for [Competitor]</span>
+            <span class="wf-chip t">how do we compare to [Competitor]</span>
+            <span class="wf-chip t">what's new with [Competitor]</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag teal">Interactive battlecard</span>
+          <span class="tag teal">Comparison matrix</span>
+          <span class="tag teal">Counter-messaging</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MEETING PREP -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Meeting Prep &amp; Discovery</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent teal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Talk copy.png" alt=""></div>
+          <div class="wf-title">call-prep</div>
+        </div>
+        <p class="wf-desc">Prepare for a sales call with account context, attendee research, recent company developments, suggested agenda, likely objections, and sharper questions.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">prep me for my call with Adobe</span>
+            <span class="wf-chip t">I'm meeting with Gong tomorrow. Get me ready.</span>
+            <span class="wf-chip t">call prep for Salesforce discovery meeting</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag teal">Account context</span>
+          <span class="tag teal">Attendee research</span>
+          <span class="tag teal">Suggested agenda</span>
+          <span class="tag teal">Discovery questions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Person 2 copy 3.png" alt=""></div>
+          <div class="wf-title">preparing-wiifm-meetings</div>
+        </div>
+        <p class="wf-desc">Create attendee-specific meeting briefs with value mapping, tailored talking points, likely objections, and flow guidance for multi-stakeholder calls.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip b">create a WIIFM brief for my meeting with Okta</span>
+            <span class="wf-chip b">map the value for each attendee in this meeting</span>
+            <span class="wf-chip b">tailor this call for the VP of Sales and CFO</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Stakeholder mapping</span>
+          <span class="tag blue">Tailored talk tracks</span>
+          <span class="tag blue">Meeting flow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent mixed"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Survey copy.png" alt=""></div>
+          <div class="wf-title">sales-discovery <span class="placeholder-badge">coming soon</span></div>
+        </div>
+        <p class="wf-desc">Generate tailored discovery questions based on the buyer, account context, deal stage, and likely business priorities.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">give me discovery questions for a VP of Product</span>
+            <span class="wf-chip r">build discovery questions for this deal stage</span>
+            <span class="wf-chip r">help me run a stronger first call</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag royal">First calls</span>
+          <span class="tag royal">Second-call prep</span>
+          <span class="tag royal">Role-specific questions</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- OUTREACH -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Outreach &amp; Seller Execution</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Writing copy.png" alt=""></div>
+          <div class="wf-title">draft-outreach</div>
+        </div>
+        <p class="wf-desc">Research the prospect first, then draft personalized outreach for email or LinkedIn using relevant hooks, company context, and a clear call to action.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip b">draft outreach to the VP of Sales at Rippling</span>
+            <span class="wf-chip b">write a cold email to the CRO at Gong</span>
+            <span class="wf-chip b">help me reach out to this target account</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag blue">Personalized draft</span>
+          <span class="tag blue">Subject options</span>
+          <span class="tag blue">Follow-up ideas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent teal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_StopWatch.png" alt=""></div>
+          <div class="wf-title">daily-briefing</div>
+        </div>
+        <p class="wf-desc">Generate a prioritized daily seller briefing with your meetings, deal alerts, key actions, and what deserves your attention most right now.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">morning briefing</span>
+            <span class="wf-chip t">prep my day</span>
+            <span class="wf-chip t">what's on my plate today</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag teal">Prioritized day plan</span>
+          <span class="tag teal">Meeting focus</span>
+          <span class="tag teal">Deal alerts</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DEAL STRATEGY -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Deal Strategy &amp; Coaching</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent royal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Check_icon.png" alt=""></div>
+          <div class="wf-title">MEDDPICCC-coach <span class="placeholder-badge">coming soon</span></div>
+        </div>
+        <p class="wf-desc">Evaluate a call, notes, or transcript against MEDDPICCC to identify qualification gaps, strengths, and coaching opportunities.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip r">evaluate this call against MEDDPICCC</span>
+            <span class="wf-chip r">what's missing in this deal</span>
+            <span class="wf-chip r">coach me on qualification gaps from this transcript</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag royal">Deal inspection</span>
+          <span class="tag royal">Qualification gaps</span>
+          <span class="tag royal">Rep coaching</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent mixed"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Scale Unbalanced copy.png" alt=""></div>
+          <div class="wf-title">deal-intervention <span class="placeholder-badge">coming soon</span></div>
+        </div>
+        <p class="wf-desc">Assess a deal that's stalled or gone sideways, identify the most likely blockers, and get a concrete action plan to regain momentum.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">help me intervene on this stalled deal</span>
+            <span class="wf-chip r">what's likely blocking this opportunity</span>
+            <span class="wf-chip r">give me a plan to recover momentum here</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag royal">Stuck deals</span>
+          <span class="tag royal">Recovery plans</span>
+          <span class="tag royal">Next-step strategy</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- POST-CALL -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Post-Call &amp; Customer Expansion</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent teal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Report copy.png" alt=""></div>
+          <div class="wf-title">summarizing-existing-client-calls</div>
+        </div>
+        <p class="wf-desc">Turn customer or account-management calls into structured recaps with risks, opportunities, next steps, and coaching guidance.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip t">summarize this customer call</span>
+            <span class="wf-chip t">turn these notes into a recap with next steps</span>
+            <span class="wf-chip t">what risks came out of this QBR</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag teal">Renewals</span>
+          <span class="tag teal">Upsells</span>
+          <span class="tag teal">Strategic account reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Leave-churn copy.png" alt=""></div>
+          <div class="wf-title">churn-alert <span class="placeholder-badge">coming soon</span></div>
+        </div>
+        <p class="wf-desc">Analyze customer notes, conversation signals, and account context to identify churn risk and recommend mitigation steps before it's too late.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip b">is this account showing churn risk</span>
+            <span class="wf-chip b">what retention red flags do you see here</span>
+            <span class="wf-chip b">analyze this call for churn signals</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Retention risk</span>
+          <span class="tag blue">Early warning signs</span>
+          <span class="tag blue">Mitigation ideas</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BRANDED ASSETS -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Turn Insight into Branded Assets</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Execution copy.png" alt=""></div>
+          <div class="wf-title">create-an-asset</div>
+        </div>
+        <p class="wf-desc">Generate tailored one-pagers, landing pages, decks, or workflow demos based on the prospect, audience, and goal of the asset.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips">
+            <span class="wf-chip b">create a one-pager for this account</span>
+            <span class="wf-chip b">build a deck for this executive conversation</span>
+            <span class="wf-chip b">make a workflow demo for this prospect</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag blue">Decks</span>
+          <span class="tag blue">One-pagers</span>
+          <span class="tag blue">Landing pages</span>
+          <span class="tag blue">Workflow demos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card featured">
+      <div class="wf-accent" style="background: linear-gradient(90deg, #09D4C8, #274FDB);"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Clozd Software copy.png" alt=""></div>
+          <div class="wf-title">applying-clozd-design-system</div>
+        </div>
+        <p class="wf-desc">Apply Clozd's design standards, color system, typography, and brand voice so your output is polished, consistent, and ready to share with any audience.</p>
+        <div class="wf-prompts">
+          <div class="wf-prompts-label">Try prompts like</div>
+          <div class="wf-chips" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+            <span class="wf-chip t" style="white-space: normal;">create a Clozd slide deck from this account research</span>
+            <span class="wf-chip b" style="white-space: normal;">turn this executive brief into a Clozd-branded one-pager</span>
+            <span class="wf-chip r" style="white-space: normal;">apply the Clozd design system to this asset</span>
+          </div>
+        </div>
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Customer-ready deliverables</span>
+          <span class="tag blue">Consistent branding</span>
+          <span class="tag blue">Final polish</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── COMBINE WORKFLOWS ── -->
+  <div class="chain-section" id="power-moves">
+    <div class="chain-banner">
+      <div class="chain-banner-label">Power moves</div>
+      <h2>Combine workflows for better output</h2>
+      <p>The best results come from chaining workflows together. Start with research or prep, then turn that output into strategy, outreach, or a polished deliverable — all in one conversation.</p>
+    </div>
+    <div class="chain-body">
+
+      <div class="flow-card">
+        <h4>Account prep</h4>
+        <p>Research the account, prep the meeting, then draft follow-up outreach.</p>
+        <div class="flow-line">
+          <span class="flow-chip">account-research</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">call-prep</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">draft-outreach</span>
+        </div>
+        <div class="flow-example">"Research Datadog" → "Now prep me for my call with them" → "Draft follow-up outreach based on that prep."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Executive selling</h4>
+        <p>Build a point of view, turn it into an asset, then brand it for Clozd.</p>
+        <div class="flow-line">
+          <span class="flow-chip">researching-executive-insights</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">create-an-asset</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
+        </div>
+        <div class="flow-example">"Create an executive brief for HubSpot" → "Turn that into a one-pager" → "Apply the Clozd design system."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Strategic proposal</h4>
+        <p>Build a proposal recommendation, then package it into a customer-ready deliverable.</p>
+        <div class="flow-line">
+          <span class="flow-chip">profiling-prospects</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">create-an-asset</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
+        </div>
+        <div class="flow-example">"Profile Adobe as a Clozd prospect" → "Turn that into a proposal deck" → "Apply the Clozd design system."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Customer account review</h4>
+        <p>Summarize the call, evaluate qualification, then create the follow-up material.</p>
+        <div class="flow-line">
+          <span class="flow-chip">summarizing-existing-client-calls</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">MEDDPICCC-coach</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">create-an-asset</span>
+        </div>
+        <div class="flow-example">"Summarize this customer call" → "Evaluate it against MEDDPICCC" → "Turn takeaways into a follow-up deck."</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TIPS ── -->
+  <div class="tips-section" id="tips">
+    <div class="tips-inner">
+      <div class="tips-eyebrow">Getting the most out of Claude</div>
+      <div class="tips-head">
+        <div class="tips-head-icon">
+          <img src="Icons/Double_Icons_Lightbulb copy.png" alt="">
+        </div>
+        <div class="tips-title">Tips for best results</div>
+      </div>
+      <div class="tips-grid">
+        <div class="tip">
+          <div class="tip-num">1</div>
+          <div class="tip-body">
+            <h4>Lead with the job to be done</h4>
+            <p>Say what you want clearly — research the account, prep the meeting, coach the deal, or build the asset. Claude will pick the right workflow.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">2</div>
+          <div class="tip-body">
+            <h4>Natural language is fine</h4>
+            <p>Use the plugin, a slash command, or plain English. Claude doesn't need perfect syntax — describe what you need and it figures it out.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">3</div>
+          <div class="tip-body">
+            <h4>Add context when it matters</h4>
+            <p>A bit of extra detail about the account, audience, deal stage, or competitor usually makes the output significantly sharper.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">4</div>
+          <div class="tip-body">
+            <h4>Chain workflows together</h4>
+            <p>Research can become prep. Prep can become outreach. Insight can become a polished, Clozd-branded deliverable — all in one session.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-logo">
+    <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo White.png" alt="Clozd">
+  </div>
+  <div class="footer-right">
+    <span class="footer-badge">Internal use only</span>
+    <span class="footer-note">Questions? Reach your Strategy &amp; Ops admin.</span>
+    <a href="#top" class="footer-top-link">Back to top</a>
+  </div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #tips');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function setActiveLink() {
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveLink);
+  window.addEventListener('load', setActiveLink);
+</script>
+
+</body>
+</html>
