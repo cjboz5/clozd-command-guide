@@ -1673,29 +1673,38 @@ body {
 </div>
 
 <script>
-  const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #tips');
-  const navLinks = document.querySelectorAll('.nav-link');
 
-  function setActiveLink() {
-    let current = '';
+const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #tips');
+const navLinks = document.querySelectorAll('.nav-link');
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
+function setActiveLink() {
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  }
+  let currentSection = null;
+  const scrollPosition = window.scrollY + 160; // offset for sticky nav
 
-  window.addEventListener('scroll', setActiveLink);
-  window.addEventListener('load', setActiveLink);
+  sections.forEach(section => {
+
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+
+    if (scrollPosition >= top && scrollPosition < bottom) {
+      currentSection = section.getAttribute('id');
+    }
+
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + currentSection) {
+      link.classList.add('active');
+    }
+  });
+
+}
+
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
 </script>
 
 </body>
