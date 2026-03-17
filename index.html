@@ -35,6 +35,7 @@ body {
 #getting-started,
 #how-it-works,
 #workflows,
+#integrations,
 #power-moves,
 #tips {
   scroll-margin-top: 96px;
@@ -665,6 +666,105 @@ body {
 .wf-card.featured .wf-prompts { background: var(--surface); }
 
 /* ─────────────────────────────────────────
+   INTEGRATIONS
+───────────────────────────────────────── */
+.integration-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.integration-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(20,166,248,0.06);
+}
+
+.integration-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.integration-summary {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.integration-usecase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .integration-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usecase-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 16px 14px;
+}
+
+.usecase-group h5 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 10px;
+}
+
+.usecase-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.usecase-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--body);
+  padding-left: 16px;
+  position: relative;
+}
+
+.usecase-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--patina);
+  font-weight: 700;
+}
+
+.integration-note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(20,166,248,0.05) 100%);
+  border: 1px solid rgba(20,166,248,0.15);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────
    COMBINE WORKFLOWS
 ───────────────────────────────────────── */
 .chain-section {
@@ -1003,6 +1103,7 @@ body {
       <a class="nav-link" href="#getting-started">Getting started</a>
       <a class="nav-link" href="#how-it-works">How it works</a>
       <a class="nav-link" href="#workflows">Workflows</a>
+      <a class="nav-link" href="#integrations">Integrations</a>
       <a class="nav-link" href="#power-moves">Power moves</a>
       <a class="nav-link" href="#tips">Tips</a>
     </div>
@@ -1549,6 +1650,90 @@ body {
 
   </div>
 
+  <!-- ── INTEGRATIONS ── -->
+  <div class="section-block" id="integrations">
+    <div class="section-eyebrow">Integrations</div>
+    <div class="section-title">Tools that make the workflows stronger</div>
+    <div class="section-sub">Connect trusted data sources to give Claude richer context for research, targeting, enrichment, and execution.</div>
+  </div>
+
+  <div class="subsection-head">
+    <div class="subsection-pip"></div>
+    <h3>ZoomInfo</h3>
+  </div>
+
+  <div class="integration-grid">
+    <div class="wf-card featured">
+      <div class="wf-accent" style="background: linear-gradient(90deg, #14A6F8, #274FDB);"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="integration-logo">
+            <img src="zoominfo/zoominfologo.png" alt="ZoomInfo logo">
+          </div>
+          <div class="wf-title">zoominfo</div>
+        </div>
+
+        <p class="integration-summary">Use ZoomInfo's GTM intelligence to ground AI workflows with verified B2B data. Research companies and contacts, enrich records with firmographic and contact data, build targeted lists, and move faster from first touch to renewal.</p>
+
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Account research</span>
+          <span class="tag blue">Contact research</span>
+          <span class="tag blue">Company enrichment</span>
+          <span class="tag blue">Contact enrichment</span>
+          <span class="tag blue">List building</span>
+          <span class="tag blue">Prospecting signals</span>
+        </div>
+
+        <div class="integration-usecase-grid">
+          <div class="usecase-group">
+            <h5>Account research</h5>
+            <ul class="usecase-list">
+              <li>Use ZoomInfo to give me a quick overview of [Company Name], including size, industry, recent funding, and key executives.</li>
+              <li>Summarize [Company Name]'s GTM motion, target customers, and any recent changes that matter for a sales conversation.</li>
+              <li>Using ZoomInfo data, identify likely pain points for a VP of Sales at [Company Name].</li>
+              <li>Give me a 5-bullet account brief on [Company Name] for a first sales call.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group">
+            <h5>Contact research</h5>
+            <ul class="usecase-list">
+              <li>Find the VP of Sales at [Company Name] and summarize their background, tenure, and likely priorities.</li>
+              <li>Using ZoomInfo, give me 3 key contacts involved in revenue decisions at [Company Name], with titles and responsibilities.</li>
+              <li>Create a short profile of [Contact Name], including role, seniority, and likely KPIs.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group">
+            <h5>List building</h5>
+            <ul class="usecase-list">
+              <li>Use ZoomInfo to build a list of 20 VP-level sales leaders at B2B SaaS companies with 200–1000 employees in healthcare.</li>
+              <li>Find 15 CROs at companies that raised Series B or C funding in the last 12 months.</li>
+              <li>Create a prospect list of companies similar to [Customer Name] with revenue between $50M and $200M.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group">
+            <h5>Enrichment &amp; targeting</h5>
+            <ul class="usecase-list">
+              <li>Enrich this list of companies with employee count, funding, and industry: [paste list].</li>
+              <li>Fill in missing data for these contacts, including title, company size, and LinkedIn: [paste list].</li>
+              <li>Take this account list and add likely decision-makers for sales or customer success.</li>
+              <li>Using ZoomInfo, identify companies showing buying signals for sales tools in the last 90 days.</li>
+              <li>Find companies hiring aggressively for sales roles that fit our ICP.</li>
+              <li>Identify fast-growing SaaS companies that would likely need win-loss analysis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="integration-note">
+          ZoomInfo is especially useful when you want Claude to move beyond general web research and work from structured GTM data — whether you're prepping a call, prioritizing accounts, or enriching a prospect list.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── COMBINE WORKFLOWS ── -->
   <div class="chain-section" id="power-moves">
     <div class="chain-banner">
@@ -1673,24 +1858,20 @@ body {
 </div>
 
 <script>
-
-const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #tips');
+const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #integrations, #power-moves, #tips');
 const navLinks = document.querySelectorAll('.nav-link');
 
 function setActiveLink() {
-
   let currentSection = null;
   const scrollPosition = window.scrollY + 160; // offset for sticky nav
 
   sections.forEach(section => {
-
     const top = section.offsetTop;
     const bottom = top + section.offsetHeight;
 
     if (scrollPosition >= top && scrollPosition < bottom) {
       currentSection = section.getAttribute('id');
     }
-
   });
 
   navLinks.forEach(link => {
@@ -1699,12 +1880,10 @@ function setActiveLink() {
       link.classList.add('active');
     }
   });
-
 }
 
 window.addEventListener('scroll', setActiveLink);
 window.addEventListener('load', setActiveLink);
-
 </script>
 
 </body>
