@@ -35,8 +35,8 @@ body {
 #getting-started,
 #how-it-works,
 #workflows,
-#integrations,
 #power-moves,
+#integrations,
 #tips {
   scroll-margin-top: 96px;
 }
@@ -248,11 +248,9 @@ body {
   padding: 18px 18px 16px;
   box-shadow: 0 6px 24px rgba(20,166,248,0.06);
 }
-
 .quick-card:nth-child(2) {
   background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(9,212,200,0.05) 100%);
 }
-
 .quick-card:nth-child(3) {
   background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(39,79,219,0.05) 100%);
 }
@@ -269,7 +267,146 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   SECTION HEADERS
+   QUICK ACTIONS
+───────────────────────────────────────── */
+.quick-actions {
+  margin-top: 8px;
+  margin-bottom: 40px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 28px rgba(20,166,248,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(20,166,248,0.03) 100%);
+}
+.quick-actions-top {
+  padding: 26px 28px 18px;
+  background-image: url('slide-bg/wave-top-right.png');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
+}
+.quick-actions-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 8px;
+}
+.quick-actions h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 8px;
+}
+.quick-actions p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 22px 28px 28px;
+}
+.quick-action {
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.035) 100%);
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+}
+.quick-action:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20,166,248,0.30);
+  box-shadow: 0 6px 24px rgba(20,166,248,0.10);
+}
+.quick-action:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(9,212,200,0.035) 100%);
+}
+.quick-action:nth-child(3) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(39,79,219,0.035) 100%);
+}
+.quick-action:nth-child(4) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.04) 100%);
+}
+.quick-action-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 6px;
+}
+.quick-action-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.quick-action-copy {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────
+   REUSABLE SECTION HEADERS
+───────────────────────────────────────── */
+.section-banner {
+  margin-top: 64px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(20,166,248,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(20,166,248,0.03) 100%);
+}
+.section-banner-inner {
+  padding: 38px 40px 34px;
+  background-image: url('slide-bg/wave-top-right.png');
+  background-size: cover;
+  background-position: center;
+}
+.section-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 10px;
+}
+.section-banner-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-banner-sub {
+  font-size: 17px;
+  color: var(--body);
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+/* ─────────────────────────────────────────
+   SECTION HEADERS / SUBSECTIONS
 ───────────────────────────────────────── */
 .section-block {
   padding-top: 72px;
@@ -300,7 +437,6 @@ body {
   line-height: 1.7;
 }
 
-/* subsection headers inside a card area */
 .subsection-head {
   display: flex;
   align-items: center;
@@ -324,10 +460,10 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   HOW TO ACCESS
+   GETTING STARTED
 ───────────────────────────────────────── */
 .access-section {
-  margin-top: 56px;
+  margin-top: 16px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -451,7 +587,6 @@ body {
   border-radius: 6px;
   white-space: nowrap;
 }
-.prompt-chip .accent { color: var(--patina); }
 .prompt-chip.blue-accent { border-left: 3px solid var(--blue); }
 .prompt-chip.royal-accent { border-left: 3px solid var(--royal); }
 .prompt-chip.teal-accent  { border-left: 3px solid var(--patina); }
@@ -475,11 +610,9 @@ body {
   overflow: hidden;
   transition: border-color .2s, box-shadow .2s;
 }
-
 .how-card:nth-child(2) {
   background: linear-gradient(180deg, #ffffff 0%, rgba(9,212,200,0.04) 100%);
 }
-
 .how-card:nth-child(3) {
   background: linear-gradient(180deg, #ffffff 0%, rgba(39,79,219,0.04) 100%);
 }
@@ -538,15 +671,12 @@ body {
   overflow: hidden;
   transition: box-shadow .2s, border-color .2s, transform .18s;
 }
-
 .wf-card:nth-child(3n+1) {
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(9,212,200,0.035) 100%);
 }
-
 .wf-card:nth-child(3n+2) {
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.035) 100%);
 }
-
 .wf-card:nth-child(3n+3) {
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(39,79,219,0.035) 100%);
 }
@@ -580,12 +710,23 @@ body {
 }
 .wf-icon img { width: 28px; height: 28px; object-fit: contain; }
 
+.wf-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
 .wf-title {
   font-size: 18px;
   font-weight: 700;
   color: var(--black);
   letter-spacing: -.1px;
   line-height: 1.3;
+}
+.wf-meaning {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
 }
 .placeholder-badge {
   font-size: 10px;
@@ -613,15 +754,36 @@ body {
   padding: 14px 16px;
   margin-bottom: 16px;
 }
+.wf-prompts-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
 .wf-prompts-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 10px;
 }
-.wf-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.prompt-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--royal);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.prompt-toggle:hover { color: var(--blue); }
+
+.wf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
 .wf-chip {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 13px;
@@ -635,6 +797,13 @@ body {
 .wf-chip.t { border-left: 3px solid var(--patina); }
 .wf-chip.b { border-left: 3px solid var(--blue); }
 .wf-chip.r { border-left: 3px solid var(--royal); }
+
+.prompt-extra {
+  display: none;
+}
+.prompt-group.expanded .prompt-extra {
+  display: inline-flex;
+}
 
 /* Output tags */
 .wf-tags-label {
@@ -666,109 +835,10 @@ body {
 .wf-card.featured .wf-prompts { background: var(--surface); }
 
 /* ─────────────────────────────────────────
-   INTEGRATIONS
-───────────────────────────────────────── */
-.integration-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.integration-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 2px 12px rgba(20,166,248,0.06);
-}
-
-.integration-logo img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
-
-.integration-summary {
-  font-size: 15px;
-  color: var(--body);
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-
-.integration-usecase-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-@media (max-width: 760px) {
-  .integration-usecase-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.usecase-group {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 16px 14px;
-}
-
-.usecase-group h5 {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--royal);
-  margin-bottom: 10px;
-}
-
-.usecase-list {
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.usecase-list li {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--body);
-  padding-left: 16px;
-  position: relative;
-}
-
-.usecase-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--patina);
-  font-weight: 700;
-}
-
-.integration-note {
-  margin-top: 18px;
-  padding: 14px 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(20,166,248,0.05) 100%);
-  border: 1px solid rgba(20,166,248,0.15);
-  border-radius: 10px;
-  font-size: 14px;
-  color: var(--body);
-  line-height: 1.7;
-}
-
-/* ─────────────────────────────────────────
-   COMBINE WORKFLOWS
+   POWER MOVES
 ───────────────────────────────────────── */
 .chain-section {
-  margin-top: 72px;
+  margin-top: 24px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -866,10 +936,115 @@ body {
 }
 
 /* ─────────────────────────────────────────
+   INTEGRATIONS
+───────────────────────────────────────── */
+.integration-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.integration-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(20,166,248,0.06);
+}
+.integration-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.integration-summary {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.integration-usecase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+@media (max-width: 760px) {
+  .integration-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usecase-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 16px 14px;
+}
+.usecase-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.usecase-group h5 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--royal);
+}
+.usecase-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.usecase-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--body);
+  padding-left: 16px;
+  position: relative;
+}
+.usecase-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--patina);
+  font-weight: 700;
+}
+.usecase-extra {
+  display: none;
+}
+.prompt-group.expanded .usecase-extra {
+  display: list-item;
+}
+
+.integration-note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(20,166,248,0.05) 100%);
+  border: 1px solid rgba(20,166,248,0.15);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────
    TIPS
 ───────────────────────────────────────── */
 .tips-section {
-  margin-top: 72px;
+  margin-top: 24px;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('slide-bg/wave-deep-bottom.png');
@@ -1063,7 +1238,10 @@ body {
   .access-body,
   .chain-banner,
   .chain-body,
-  .tips-inner {
+  .tips-inner,
+  .section-banner-inner,
+  .quick-actions-top,
+  .quick-actions-grid {
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -1072,17 +1250,25 @@ body {
     padding: 22px 22px 24px;
   }
 
-  .section-title {
+  .section-title,
+  .section-banner-title,
+  .tips-title {
     font-size: 30px;
   }
 
   .subsection-head h3 {
     font-size: 21px;
   }
+
+  .wf-prompts-head,
+  .usecase-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media print {
-  .hero, .tips-section, .chain-banner, .access-banner {
+  .hero, .tips-section, .chain-banner, .access-banner, .section-banner {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -1103,8 +1289,8 @@ body {
       <a class="nav-link" href="#getting-started">Getting started</a>
       <a class="nav-link" href="#how-it-works">How it works</a>
       <a class="nav-link" href="#workflows">Workflows</a>
-      <a class="nav-link" href="#integrations">Integrations</a>
       <a class="nav-link" href="#power-moves">Power moves</a>
+      <a class="nav-link" href="#integrations">Integrations</a>
       <a class="nav-link" href="#tips">Tips</a>
     </div>
     <span class="nav-tag">Claude Sales Plugin</span>
@@ -1149,7 +1335,38 @@ body {
     </div>
   </div>
 
-  <!-- ── HOW TO ACCESS ── -->
+  <!-- QUICK ACTIONS -->
+  <div class="quick-actions">
+    <div class="quick-actions-top">
+      <div class="quick-actions-label">Quick actions</div>
+      <h2>Jump straight to the job to be done</h2>
+      <p>Pick the task that matches what you need right now and skip the browsing.</p>
+    </div>
+    <div class="quick-actions-grid">
+      <a class="quick-action" href="#workflows">
+        <div class="quick-action-kicker">Research</div>
+        <div class="quick-action-title">Research an account</div>
+        <div class="quick-action-copy">Go straight to account and prospect research workflows.</div>
+      </a>
+      <a class="quick-action" href="#workflows">
+        <div class="quick-action-kicker">Meetings</div>
+        <div class="quick-action-title">Prep a call</div>
+        <div class="quick-action-copy">Jump to meeting prep, discovery support, and stakeholder context.</div>
+      </a>
+      <a class="quick-action" href="#workflows">
+        <div class="quick-action-kicker">Outreach</div>
+        <div class="quick-action-title">Write outreach</div>
+        <div class="quick-action-copy">Find workflows for personalized emails, targeting, and next steps.</div>
+      </a>
+      <a class="quick-action" href="#integrations">
+        <div class="quick-action-kicker">Data</div>
+        <div class="quick-action-title">Use ZoomInfo or Gong</div>
+        <div class="quick-action-copy">See where integrations strengthen research, enrichment, and execution.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- GETTING STARTED -->
   <div class="access-section" id="getting-started">
     <div class="access-banner">
       <div class="access-banner-inner">
@@ -1188,13 +1405,16 @@ body {
     </div>
   </div>
 
-  <!-- ── HOW IT WORKS ── -->
-  <div class="section-block" id="how-it-works">
-    <div class="section-eyebrow">Process</div>
-    <div class="section-title">How it works</div>
-    <div class="section-sub">Three steps. Any workflow. Start wherever makes sense for the job at hand.</div>
+  <!-- HOW IT WORKS HEADER -->
+  <div class="section-banner" id="how-it-works">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Process</div>
+      <div class="section-banner-title">How it works</div>
+      <div class="section-banner-sub">Three steps. Any workflow. Start wherever makes sense for the job at hand.</div>
+    </div>
   </div>
-  <div class="how-grid">
+
+  <div class="how-grid" style="margin-top: 16px;">
     <div class="how-card">
       <div class="how-step-num">01</div>
       <h4>Pick the workflow</h4>
@@ -1212,11 +1432,13 @@ body {
     </div>
   </div>
 
-  <!-- ── WHAT CLAUDE CAN DO ── -->
-  <div class="section-block" id="workflows">
-    <div class="section-eyebrow">Workflows</div>
-    <div class="section-title">What Claude can help you do</div>
-    <div class="section-sub">Every workflow in the Clozd Sales plugin, with example prompts and what you'll walk away with.</div>
+  <!-- WORKFLOWS HEADER -->
+  <div class="section-banner" id="workflows">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Workflows</div>
+      <div class="section-banner-title">What Claude can help you do</div>
+      <div class="section-banner-sub">Every workflow in the Clozd Sales plugin, with example prompts and what you'll walk away with.</div>
+    </div>
   </div>
 
   <!-- PROSPECTING -->
@@ -1231,17 +1453,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Research copy.png" alt=""></div>
-          <div class="wf-title">account-research</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">account-research</div>
+            <div class="wf-meaning">Plain English: research an account fast</div>
+          </div>
         </div>
         <p class="wf-desc">Research a company or person and surface actionable sales intel — business overview, recent news, leadership context, buying signals, and recommended outreach angles.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip b">research Databricks</span>
             <span class="wf-chip b">look up the CRO at Notion</span>
-            <span class="wf-chip b">tell me about Ramp before my call</span>
+            <span class="wf-chip b prompt-extra">tell me about Ramp before my call</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag blue">Fast account context</span>
@@ -1256,17 +1486,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Target copy.png" alt=""></div>
-          <div class="wf-title">profiling-prospects</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">profiling-prospects</div>
+            <div class="wf-meaning">Plain English: build a Clozd proposal for a target account</div>
+          </div>
         </div>
         <p class="wf-desc">Turn a target account into a credible Clozd proposal with company research, buyer-pool sizing, phased rollout logic, and ROI modeling. A smart conversation starter, not a binding quote.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">profile Adobe as a Clozd prospect</span>
             <span class="wf-chip r">build a Clozd proposal for HubSpot</span>
-            <span class="wf-chip r">recommend a phased win-loss program for ServiceNow</span>
+            <span class="wf-chip r prompt-extra">recommend a phased win-loss program for ServiceNow</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag royal">Narrative brief</span>
@@ -1281,17 +1519,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Lightbulb 2 copy.png" alt=""></div>
-          <div class="wf-title">researching-executive-insights</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">researching-executive-insights</div>
+            <div class="wf-meaning">Plain English: create an executive-ready point of view</div>
+          </div>
         </div>
         <p class="wf-desc">Create an outside-in executive brief that highlights market shifts, competitive moves, buyer friction, and visibility gaps for senior leaders — grounded in recent public evidence.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip r">build an executive insight brief for Snowflake</span>
             <span class="wf-chip r">what should a CRO care about at Asana right now</span>
-            <span class="wf-chip r">give me an outside-in POV on Zoom</span>
+            <span class="wf-chip r prompt-extra">give me an outside-in POV on Zoom</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag royal">Executive outreach</span>
@@ -1306,17 +1552,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Strategy copy.png" alt=""></div>
-          <div class="wf-title">competitive-intelligence</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">competitive-intelligence</div>
+            <div class="wf-meaning">Plain English: build a competitor battlecard</div>
+          </div>
         </div>
         <p class="wf-desc">Research competitors and build a battlecard with positioning, recent releases, differentiation, pricing context, talk tracks, objection handling, and landmine questions.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">battlecard for [Competitor]</span>
             <span class="wf-chip t">how do we compare to [Competitor]</span>
-            <span class="wf-chip t">what's new with [Competitor]</span>
+            <span class="wf-chip t prompt-extra">what's new with [Competitor]</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag teal">Interactive battlecard</span>
@@ -1340,17 +1594,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Talk copy.png" alt=""></div>
-          <div class="wf-title">call-prep</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">call-prep</div>
+            <div class="wf-meaning">Plain English: get ready for a sales call</div>
+          </div>
         </div>
         <p class="wf-desc">Prepare for a sales call with account context, attendee research, recent company developments, suggested agenda, likely objections, and sharper questions.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">prep me for my call with Adobe</span>
             <span class="wf-chip t">I'm meeting with Gong tomorrow. Get me ready.</span>
-            <span class="wf-chip t">call prep for Salesforce discovery meeting</span>
+            <span class="wf-chip t prompt-extra">call prep for Salesforce discovery meeting</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag teal">Account context</span>
@@ -1366,17 +1628,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Person 2 copy 3.png" alt=""></div>
-          <div class="wf-title">preparing-wiifm-meetings</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">preparing-wiifm-meetings</div>
+            <div class="wf-meaning">Plain English: tailor the meeting to each attendee</div>
+          </div>
         </div>
         <p class="wf-desc">Create attendee-specific meeting briefs with value mapping, tailored talking points, likely objections, and flow guidance for multi-stakeholder calls.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip b">create a WIIFM brief for my meeting with Okta</span>
             <span class="wf-chip b">map the value for each attendee in this meeting</span>
-            <span class="wf-chip b">tailor this call for the VP of Sales and CFO</span>
+            <span class="wf-chip b prompt-extra">tailor this call for the VP of Sales and CFO</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag blue">Stakeholder mapping</span>
@@ -1391,17 +1661,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Survey copy.png" alt=""></div>
-          <div class="wf-title">sales-discovery <span class="placeholder-badge">coming soon</span></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">sales-discovery <span class="placeholder-badge">coming soon</span></div>
+            <div class="wf-meaning">Plain English: generate smarter discovery questions</div>
+          </div>
         </div>
         <p class="wf-desc">Generate tailored discovery questions based on the buyer, account context, deal stage, and likely business priorities.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">give me discovery questions for a VP of Product</span>
             <span class="wf-chip r">build discovery questions for this deal stage</span>
-            <span class="wf-chip r">help me run a stronger first call</span>
+            <span class="wf-chip r prompt-extra">help me run a stronger first call</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag royal">First calls</span>
@@ -1425,17 +1703,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Writing copy.png" alt=""></div>
-          <div class="wf-title">draft-outreach</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">draft-outreach</div>
+            <div class="wf-meaning">Plain English: write personalized outbound outreach</div>
+          </div>
         </div>
         <p class="wf-desc">Research the prospect first, then draft personalized outreach for email or LinkedIn using relevant hooks, company context, and a clear call to action.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip b">draft outreach to the VP of Sales at Rippling</span>
             <span class="wf-chip b">write a cold email to the CRO at Gong</span>
-            <span class="wf-chip b">help me reach out to this target account</span>
+            <span class="wf-chip b prompt-extra">help me reach out to this target account</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag blue">Personalized draft</span>
@@ -1450,17 +1736,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_StopWatch.png" alt=""></div>
-          <div class="wf-title">daily-briefing</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">daily-briefing</div>
+            <div class="wf-meaning">Plain English: prioritize what to do today</div>
+          </div>
         </div>
         <p class="wf-desc">Generate a prioritized daily seller briefing with your meetings, deal alerts, key actions, and what deserves your attention most right now.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">morning briefing</span>
             <span class="wf-chip t">prep my day</span>
-            <span class="wf-chip t">what's on my plate today</span>
+            <span class="wf-chip t prompt-extra">what's on my plate today</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag teal">Prioritized day plan</span>
@@ -1484,17 +1778,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Check_icon.png" alt=""></div>
-          <div class="wf-title">MEDDPICCC-coach <span class="placeholder-badge">coming soon</span></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">MEDDPICCC-coach <span class="placeholder-badge">coming soon</span></div>
+            <div class="wf-meaning">Plain English: inspect a deal for qualification gaps</div>
+          </div>
         </div>
         <p class="wf-desc">Evaluate a call, notes, or transcript against MEDDPICCC to identify qualification gaps, strengths, and coaching opportunities.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip r">evaluate this call against MEDDPICCC</span>
             <span class="wf-chip r">what's missing in this deal</span>
-            <span class="wf-chip r">coach me on qualification gaps from this transcript</span>
+            <span class="wf-chip r prompt-extra">coach me on qualification gaps from this transcript</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag royal">Deal inspection</span>
@@ -1509,17 +1811,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Scale Unbalanced copy.png" alt=""></div>
-          <div class="wf-title">deal-intervention <span class="placeholder-badge">coming soon</span></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">deal-intervention <span class="placeholder-badge">coming soon</span></div>
+            <div class="wf-meaning">Plain English: recover a stalled deal</div>
+          </div>
         </div>
         <p class="wf-desc">Assess a deal that's stalled or gone sideways, identify the most likely blockers, and get a concrete action plan to regain momentum.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">help me intervene on this stalled deal</span>
             <span class="wf-chip r">what's likely blocking this opportunity</span>
-            <span class="wf-chip r">give me a plan to recover momentum here</span>
+            <span class="wf-chip r prompt-extra">give me a plan to recover momentum here</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag royal">Stuck deals</span>
@@ -1543,17 +1853,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Report copy.png" alt=""></div>
-          <div class="wf-title">summarizing-existing-client-calls</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">summarizing-existing-client-calls</div>
+            <div class="wf-meaning">Plain English: turn a customer call into a recap</div>
+          </div>
         </div>
         <p class="wf-desc">Turn customer or account-management calls into structured recaps with risks, opportunities, next steps, and coaching guidance.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip t">summarize this customer call</span>
             <span class="wf-chip t">turn these notes into a recap with next steps</span>
-            <span class="wf-chip t">what risks came out of this QBR</span>
+            <span class="wf-chip t prompt-extra">what risks came out of this QBR</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag teal">Renewals</span>
@@ -1568,17 +1886,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Leave-churn copy.png" alt=""></div>
-          <div class="wf-title">churn-alert <span class="placeholder-badge">coming soon</span></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">churn-alert <span class="placeholder-badge">coming soon</span></div>
+            <div class="wf-meaning">Plain English: spot churn risk early</div>
+          </div>
         </div>
         <p class="wf-desc">Analyze customer notes, conversation signals, and account context to identify churn risk and recommend mitigation steps before it's too late.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip b">is this account showing churn risk</span>
             <span class="wf-chip b">what retention red flags do you see here</span>
-            <span class="wf-chip b">analyze this call for churn signals</span>
+            <span class="wf-chip b prompt-extra">analyze this call for churn signals</span>
           </div>
         </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag blue">Retention risk</span>
@@ -1602,17 +1928,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Execution copy.png" alt=""></div>
-          <div class="wf-title">create-an-asset</div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">create-an-asset</div>
+            <div class="wf-meaning">Plain English: turn work into a shareable asset</div>
+          </div>
         </div>
         <p class="wf-desc">Generate tailored one-pagers, landing pages, decks, or workflow demos based on the prospect, audience, and goal of the asset.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
           <div class="wf-chips">
             <span class="wf-chip b">create a one-pager for this account</span>
             <span class="wf-chip b">build a deck for this executive conversation</span>
-            <span class="wf-chip b">make a workflow demo for this prospect</span>
+            <span class="wf-chip b prompt-extra">make a workflow demo for this prospect</span>
           </div>
         </div>
+
         <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
           <span class="tag blue">Decks</span>
@@ -1628,17 +1962,25 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Clozd Software copy.png" alt=""></div>
-          <div class="wf-title">applying-clozd-design-system</div>
-        </div>
-        <p class="wf-desc">Apply Clozd's design standards, color system, typography, and brand voice so your output is polished, consistent, and ready to share with any audience.</p>
-        <div class="wf-prompts">
-          <div class="wf-prompts-label">Try prompts like</div>
-          <div class="wf-chips" style="flex-direction: column; align-items: flex-start; gap: 6px;">
-            <span class="wf-chip t" style="white-space: normal;">create a Clozd slide deck from this account research</span>
-            <span class="wf-chip b" style="white-space: normal;">turn this executive brief into a Clozd-branded one-pager</span>
-            <span class="wf-chip r" style="white-space: normal;">apply the Clozd design system to this asset</span>
+          <div class="wf-title-wrap">
+            <div class="wf-title">applying-clozd-design-system</div>
+            <div class="wf-meaning">Plain English: make it look polished and on-brand</div>
           </div>
         </div>
+        <p class="wf-desc">Apply Clozd's design standards, color system, typography, and brand voice so your output is polished, consistent, and ready to share with any audience.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Try prompts like</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip t">create a Clozd slide deck from this account research</span>
+            <span class="wf-chip b">turn this executive brief into a Clozd-branded one-pager</span>
+            <span class="wf-chip r prompt-extra">apply the Clozd design system to this asset</span>
+          </div>
+        </div>
+
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
           <span class="tag blue">Customer-ready deliverables</span>
@@ -1650,97 +1992,16 @@ body {
 
   </div>
 
-  <!-- ── INTEGRATIONS ── -->
-  <div class="section-block" id="integrations">
-    <div class="section-eyebrow">Integrations</div>
-    <div class="section-title">Tools that make the workflows stronger</div>
-    <div class="section-sub">Connect trusted data sources to give Claude richer context for research, targeting, enrichment, and execution.</div>
-  </div>
-
-  <div class="subsection-head">
-    <div class="subsection-pip"></div>
-    <h3>ZoomInfo</h3>
-  </div>
-
-  <div class="integration-grid">
-    <div class="wf-card featured">
-      <div class="wf-accent" style="background: linear-gradient(90deg, #14A6F8, #274FDB);"></div>
-      <div class="wf-body">
-        <div class="wf-icon-row">
-          <div class="integration-logo">
-            <img src="zoominfo/zoominfologo2.png" alt="ZoomInfo logo">
-          </div>
-          <div class="wf-title">zoominfo</div>
-        </div>
-
-        <p class="integration-summary">Use ZoomInfo's GTM intelligence to ground AI workflows with verified B2B data. Research companies and contacts, enrich records with firmographic and contact data, build targeted lists, and move faster from first touch to renewal.</p>
-
-        <div class="wf-tags-label">Best for</div>
-        <div class="wf-tags">
-          <span class="tag blue">Account research</span>
-          <span class="tag blue">Contact research</span>
-          <span class="tag blue">Company enrichment</span>
-          <span class="tag blue">Contact enrichment</span>
-          <span class="tag blue">List building</span>
-          <span class="tag blue">Prospecting signals</span>
-        </div>
-
-        <div class="integration-usecase-grid">
-          <div class="usecase-group">
-            <h5>Account research</h5>
-            <ul class="usecase-list">
-              <li>Use ZoomInfo to give me a quick overview of [Company Name], including size, industry, recent funding, and key executives.</li>
-              <li>Summarize [Company Name]'s GTM motion, target customers, and any recent changes that matter for a sales conversation.</li>
-              <li>Using ZoomInfo data, identify likely pain points for a VP of Sales at [Company Name].</li>
-              <li>Give me a 5-bullet account brief on [Company Name] for a first sales call.</li>
-            </ul>
-          </div>
-
-          <div class="usecase-group">
-            <h5>Contact research</h5>
-            <ul class="usecase-list">
-              <li>Find the VP of Sales at [Company Name] and summarize their background, tenure, and likely priorities.</li>
-              <li>Using ZoomInfo, give me 3 key contacts involved in revenue decisions at [Company Name], with titles and responsibilities.</li>
-              <li>Create a short profile of [Contact Name], including role, seniority, and likely KPIs.</li>
-            </ul>
-          </div>
-
-          <div class="usecase-group">
-            <h5>List building</h5>
-            <ul class="usecase-list">
-              <li>Use ZoomInfo to build a list of 20 VP-level sales leaders at B2B SaaS companies with 200–1000 employees in healthcare.</li>
-              <li>Find 15 CROs at companies that raised Series B or C funding in the last 12 months.</li>
-              <li>Create a prospect list of companies similar to [Customer Name] with revenue between $50M and $200M.</li>
-            </ul>
-          </div>
-
-          <div class="usecase-group">
-            <h5>Enrichment &amp; targeting</h5>
-            <ul class="usecase-list">
-              <li>Enrich this list of companies with employee count, funding, and industry: [paste list].</li>
-              <li>Fill in missing data for these contacts, including title, company size, and LinkedIn: [paste list].</li>
-              <li>Take this account list and add likely decision-makers for sales or customer success.</li>
-              <li>Using ZoomInfo, identify companies showing buying signals for sales tools in the last 90 days.</li>
-              <li>Find companies hiring aggressively for sales roles that fit our ICP.</li>
-              <li>Identify fast-growing SaaS companies that would likely need win-loss analysis.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="integration-note">
-          ZoomInfo is especially useful when you want Claude to move beyond general web research and work from structured GTM data — whether you're prepping a call, prioritizing accounts, or enriching a prospect list.
-        </div>
-      </div>
+  <!-- POWER MOVES HEADER -->
+  <div class="section-banner" id="power-moves">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Power moves</div>
+      <div class="section-banner-title">Combine workflows for better output</div>
+      <div class="section-banner-sub">The best results come from chaining workflows together. Start with research or prep, then turn that output into strategy, outreach, or a polished deliverable — all in one conversation.</div>
     </div>
   </div>
 
-  <!-- ── COMBINE WORKFLOWS ── -->
-  <div class="chain-section" id="power-moves">
-    <div class="chain-banner">
-      <div class="chain-banner-label">Power moves</div>
-      <h2>Combine workflows for better output</h2>
-      <p>The best results come from chaining workflows together. Start with research or prep, then turn that output into strategy, outreach, or a polished deliverable — all in one conversation.</p>
-    </div>
+  <div class="chain-section">
     <div class="chain-body">
 
       <div class="flow-card">
@@ -1798,16 +2059,151 @@ body {
     </div>
   </div>
 
-  <!-- ── TIPS ── -->
-  <div class="tips-section" id="tips">
-    <div class="tips-inner">
-      <div class="tips-eyebrow">Getting the most out of Claude</div>
-      <div class="tips-head">
-        <div class="tips-head-icon">
-          <img src="Icons/Double_Icons_Lightbulb copy.png" alt="">
+  <!-- INTEGRATIONS HEADER -->
+  <div class="section-banner" id="integrations">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Integrations</div>
+      <div class="section-banner-title">Tools that make the workflows stronger</div>
+      <div class="section-banner-sub">Connect trusted data sources to give Claude richer context for research, targeting, enrichment, and execution.</div>
+    </div>
+  </div>
+
+  <div class="subsection-head">
+    <div class="subsection-pip"></div>
+    <h3>ZoomInfo</h3>
+  </div>
+
+  <div class="integration-grid">
+    <div class="wf-card featured">
+      <div class="wf-accent" style="background: linear-gradient(90deg, #14A6F8, #274FDB);"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="integration-logo">
+            <img src="zoominfo/zoomingologo2.png" alt="ZoomInfo logo">
+          </div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">zoominfo</div>
+            <div class="wf-meaning">Plain English: use verified B2B data to sharpen your workflow</div>
+          </div>
         </div>
-        <div class="tips-title">Tips for best results</div>
+
+        <p class="integration-summary">Use ZoomInfo's GTM intelligence to ground AI workflows with verified B2B data. Research companies and contacts, enrich records with firmographic and contact data, build targeted lists, and move faster from first touch to renewal.</p>
+
+        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags">
+          <span class="tag blue">Account research</span>
+          <span class="tag blue">Contact research</span>
+          <span class="tag blue">Company enrichment</span>
+          <span class="tag blue">Contact enrichment</span>
+          <span class="tag blue">List building</span>
+          <span class="tag blue">Prospecting signals</span>
+        </div>
+
+        <div class="integration-usecase-grid">
+          <div class="usecase-group prompt-group">
+            <div class="usecase-head">
+              <h5>Account research</h5>
+              <button class="prompt-toggle" type="button">See more examples</button>
+            </div>
+            <ul class="usecase-list">
+              <li>Use ZoomInfo to give me a quick overview of [Company Name], including size, industry, recent funding, and key executives.</li>
+              <li>Summarize [Company Name]'s GTM motion, target customers, and any recent changes that matter for a sales conversation.</li>
+              <li class="usecase-extra">Using ZoomInfo data, identify likely pain points for a VP of Sales at [Company Name].</li>
+              <li class="usecase-extra">Give me a 5-bullet account brief on [Company Name] for a first sales call.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group prompt-group">
+            <div class="usecase-head">
+              <h5>Contact research</h5>
+              <button class="prompt-toggle" type="button">See more examples</button>
+            </div>
+            <ul class="usecase-list">
+              <li>Find the VP of Sales at [Company Name] and summarize their background, tenure, and likely priorities.</li>
+              <li>Using ZoomInfo, give me 3 key contacts involved in revenue decisions at [Company Name], with titles and responsibilities.</li>
+              <li class="usecase-extra">Create a short profile of [Contact Name], including role, seniority, and likely KPIs.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group prompt-group">
+            <div class="usecase-head">
+              <h5>List building</h5>
+              <button class="prompt-toggle" type="button">See more examples</button>
+            </div>
+            <ul class="usecase-list">
+              <li>Use ZoomInfo to build a list of 20 VP-level sales leaders at B2B SaaS companies with 200–1000 employees in healthcare.</li>
+              <li>Find 15 CROs at companies that raised Series B or C funding in the last 12 months.</li>
+              <li class="usecase-extra">Create a prospect list of companies similar to [Customer Name] with revenue between $50M and $200M.</li>
+            </ul>
+          </div>
+
+          <div class="usecase-group prompt-group">
+            <div class="usecase-head">
+              <h5>Enrichment &amp; targeting</h5>
+              <button class="prompt-toggle" type="button">See more examples</button>
+            </div>
+            <ul class="usecase-list">
+              <li>Enrich this list of companies with employee count, funding, and industry: [paste list].</li>
+              <li>Fill in missing data for these contacts, including title, company size, and LinkedIn: [paste list].</li>
+              <li class="usecase-extra">Take this account list and add likely decision-makers for sales or customer success.</li>
+              <li class="usecase-extra">Using ZoomInfo, identify companies showing buying signals for sales tools in the last 90 days.</li>
+              <li class="usecase-extra">Find companies hiring aggressively for sales roles that fit our ICP.</li>
+              <li class="usecase-extra">Identify fast-growing SaaS companies that would likely need win-loss analysis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="integration-note">
+          ZoomInfo is especially useful when you want Claude to move beyond general web research and work from structured GTM data — whether you're prepping a call, prioritizing accounts, or enriching a prospect list.
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Gong</h3>
+  </div>
+
+  <div class="integration-grid">
+    <div class="wf-card">
+      <div class="wf-accent" style="background: linear-gradient(90deg, #09D4C8, #14A6F8);"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="integration-logo">
+            <img src="3rdpartylogos/gonglogo.png" alt="Gong logo">
+          </div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">gong <span class="placeholder-badge">future state</span></div>
+            <div class="wf-meaning">Plain English: use call data and conversation signals to coach deals</div>
+          </div>
+        </div>
+
+        <p class="integration-summary">Future-state placeholder for using Gong conversation data to strengthen meeting prep, post-call analysis, deal coaching, and risk detection inside Claude workflows.</p>
+
+        <div class="wf-tags-label">Potential use cases</div>
+        <div class="wf-tags">
+          <span class="tag teal">Call summaries</span>
+          <span class="tag teal">Objection analysis</span>
+          <span class="tag teal">Deal coaching</span>
+          <span class="tag teal">Qualification reviews</span>
+          <span class="tag teal">Risk detection</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS HEADER -->
+  <div class="section-banner" id="tips">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Getting the most out of Claude</div>
+      <div class="section-banner-title">Tips for best results</div>
+      <div class="section-banner-sub">A few simple habits make the outputs sharper, more relevant, and easier to use in real sales situations.</div>
+    </div>
+  </div>
+
+  <div class="tips-section">
+    <div class="tips-inner">
       <div class="tips-grid">
         <div class="tip">
           <div class="tip-num">1</div>
@@ -1843,9 +2239,7 @@ body {
 
 </div>
 
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
+<!-- FOOTER -->
 <div class="footer">
   <div class="footer-logo">
     <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd">
@@ -1858,12 +2252,13 @@ body {
 </div>
 
 <script>
-const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #integrations, #power-moves, #tips');
+const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #integrations, #tips');
 const navLinks = document.querySelectorAll('.nav-link');
+const toggleButtons = document.querySelectorAll('.prompt-toggle');
 
 function setActiveLink() {
   let currentSection = null;
-  const scrollPosition = window.scrollY + 160; // offset for sticky nav
+  const scrollPosition = window.scrollY + 160;
 
   sections.forEach(section => {
     const top = section.offsetTop;
@@ -1881,6 +2276,18 @@ function setActiveLink() {
     }
   });
 }
+
+toggleButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const group = button.closest('.prompt-group');
+    if (!group) return;
+
+    group.classList.toggle('expanded');
+    button.textContent = group.classList.contains('expanded')
+      ? 'Show fewer examples'
+      : 'See more examples';
+  });
+});
 
 window.addEventListener('scroll', setActiveLink);
 window.addEventListener('load', setActiveLink);
