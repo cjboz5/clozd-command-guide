@@ -1312,16 +1312,15 @@ body {
 ══════════════════════════════════════ -->
 <nav class="nav">
   <div class="nav-logo">
-    <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd" />
+    <a href="https://cjboz5.github.io/clozd-command-guide/">
+      <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd" />
+    </a>
   </div>
   <div class="nav-right">
     <div class="nav-links">
-      <a class="nav-link" href="#getting-started">Getting started</a>
-      <a class="nav-link" href="#how-it-works">How it works</a>
-      <a class="nav-link" href="#workflows">Workflows</a>
-      <a class="nav-link" href="#power-moves">Power moves</a>
-      <a class="nav-link" href="#integrations">Integrations</a>
-      <a class="nav-link" href="#tips">Tips</a>
+      <a class="nav-link" href="https://cjboz5.github.io/clozd-command-guide/">Home</a>
+      <a class="nav-link active" href="https://cjboz5.github.io/clozd-command-guide/">Command Guide</a>
+      <a class="nav-link" href="https://cjboz5.github.io/clozd-branding/">Clozd Branding</a>
     </div>
     <span class="nav-tag">Claude Sales Plugin</span>
     <span class="nav-badge">Internal use only</span>
@@ -2357,30 +2356,7 @@ body {
 </div>
 
 <script>
-const sections = document.querySelectorAll('#getting-started, #how-it-works, #workflows, #power-moves, #integrations, #tips');
-const navLinks = document.querySelectorAll('.nav-link');
 const toggleButtons = document.querySelectorAll('.prompt-toggle');
-
-function setActiveLink() {
-  let currentSection = null;
-  const scrollPosition = window.scrollY + 160;
-
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const bottom = top + section.offsetHeight;
-
-    if (scrollPosition >= top && scrollPosition < bottom) {
-      currentSection = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + currentSection) {
-      link.classList.add('active');
-    }
-  });
-}
 
 toggleButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -2393,9 +2369,6 @@ toggleButtons.forEach(button => {
       : 'See more examples';
   });
 });
-
-window.addEventListener('scroll', setActiveLink);
-window.addEventListener('load', setActiveLink);
 </script>
 
 </body>
