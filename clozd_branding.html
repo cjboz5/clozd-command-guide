@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clozd Design System | Claude Command Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --patina:    #09D4C8;
+  --blue:      #14A6F8;
+  --royal:     #274FDB;
+  --charcoal:  #1F2528;
+  --black:     #000000;
+  --body:      #3D464D;
+  --muted:     #6B757C;
+  --border:    #E4E7EA;
+  --surface:   #F7F8F9;
+  --white:     #FFFFFF;
+  --green:     #00C371;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--white);
+  color: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#getting-started,
+#how-it-works,
+#what-you-can-make,
+#built-in-branding,
+#power-moves,
+#tips {
+  scroll-margin-top: 96px;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(39,79,219,0.08);
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo img { height: 28px; display: block; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 24px;
+}
+.nav-link {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--royal);
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(39,79,219,0.14);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(39,79,219,0.06);
+  transition: background .2s, color .2s, border-color .2s, box-shadow .2s;
+}
+.nav-link:hover {
+  color: var(--blue);
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(20,166,248,0.22);
+  box-shadow: 0 4px 14px rgba(20,166,248,0.10);
+}
+.nav-link.active {
+  color: var(--blue);
+  background: rgba(20,166,248,0.10);
+  border-color: rgba(20,166,248,0.20);
+  box-shadow: 0 4px 14px rgba(20,166,248,0.08);
+}
+.nav-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--muted);
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(31,37,40,0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+.nav-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #0A9E95;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(9,212,200,0.22);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(6px);
+}
+.nav-tag::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--patina);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+  background: linear-gradient(180deg, #eef7fb 0%, #f7fbff 72%, #ffffff 100%);
+  background-image: url('slide-bg/hero-dark.png');
+  background-size: cover;
+  background-position: center center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.34) 45%,
+      rgba(255,255,255,0.72) 100%
+    ),
+    linear-gradient(
+      100deg,
+      rgba(255,255,255,0.28) 0%,
+      rgba(255,255,255,0.10) 55%,
+      rgba(255,255,255,0.00) 100%
+    );
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 96px 48px 110px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--charcoal);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  margin-bottom: 20px;
+  max-width: 820px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--patina) 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 19px;
+  color: rgba(31, 37, 40, 0.72);
+  max-width: 760px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(39,79,219,0.10);
+  color: rgba(31,37,40,0.78);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+.pill::before {
+  content: "✓";
+  font-size: 10px;
+  color: var(--patina);
+}
+
+/* ─────────────────────────────────────────
+   MAIN WRAPPER
+───────────────────────────────────────── */
+.main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.quick-start {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: -34px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+}
+.quick-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(20,166,248,0.04) 100%);
+  border: 1px solid rgba(39,79,219,0.10);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 6px 24px rgba(20,166,248,0.06);
+}
+.quick-card:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(9,212,200,0.05) 100%);
+}
+.quick-card:nth-child(3) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(39,79,219,0.05) 100%);
+}
+.quick-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.quick-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   QUICK ACTIONS
+───────────────────────────────────────── */
+.quick-actions {
+  margin-top: 8px;
+  margin-bottom: 40px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 28px rgba(20,166,248,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(20,166,248,0.03) 100%);
+}
+.quick-actions-top {
+  padding: 26px 28px 18px;
+  background-image: url('slide-bg/wave-top-right.png');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
+}
+.quick-actions-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 8px;
+}
+.quick-actions h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 8px;
+}
+.quick-actions p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 22px 28px 28px;
+}
+.quick-action {
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.035) 100%);
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+}
+.quick-action:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20,166,248,0.30);
+  box-shadow: 0 6px 24px rgba(20,166,248,0.10);
+}
+.quick-action:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(9,212,200,0.035) 100%);
+}
+.quick-action:nth-child(3) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(39,79,219,0.035) 100%);
+}
+.quick-action:nth-child(4) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.04) 100%);
+}
+.quick-action-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 6px;
+}
+.quick-action-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.quick-action-copy {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   ACCESS SECTION
+───────────────────────────────────────── */
+.access-section {
+  margin-bottom: 40px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(39,79,219,0.06);
+}
+.access-banner {
+  padding: 40px 40px 36px;
+  background-image: url('slide-bg/wave-teal-sweep.png');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
+}
+.access-banner-inner {}
+.access-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 10px;
+}
+.access-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 12px;
+}
+.access-banner p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.75;
+  max-width: 660px;
+}
+.access-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 36px 40px 40px;
+}
+.access-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.step-list { display: flex; flex-direction: column; gap: 12px; }
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--patina), var(--blue));
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(9,212,200,0.3);
+}
+.step-item p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.65;
+  padding-top: 3px;
+}
+.launch-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.launch-list li {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.65;
+  padding-left: 18px;
+  position: relative;
+}
+.launch-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--patina);
+  font-weight: 700;
+}
+.prompt-examples {}
+.prompt-examples-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.prompt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.prompt-chip {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--charcoal);
+}
+.prompt-chip.teal-accent { border-left: 3px solid var(--patina); }
+.prompt-chip.blue-accent  { border-left: 3px solid var(--blue); }
+.prompt-chip.royal-accent { border-left: 3px solid var(--royal); }
+
+/* ─────────────────────────────────────────
+   SECTION BANNER
+───────────────────────────────────────── */
+.section-banner {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 14px rgba(39,79,219,0.05);
+  margin-top: 52px;
+  margin-bottom: 4px;
+  background-image: url('slide-bg/wave-center.png');
+  background-size: cover;
+  background-position: center;
+}
+.section-banner-inner {
+  padding: 36px 40px;
+}
+.section-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 8px;
+}
+.section-banner-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.4px;
+  margin-bottom: 10px;
+}
+.section-banner-sub {
+  font-size: 17px;
+  color: var(--body);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+/* ─────────────────────────────────────────
+   HOW IT WORKS
+───────────────────────────────────────── */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 680px) { .how-grid { grid-template-columns: 1fr; } }
+
+.how-card {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(20,166,248,0.035) 100%);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.how-card:nth-child(2) {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(9,212,200,0.04) 100%);
+}
+.how-card:nth-child(3) {
+  background: linear-gradient(180deg, #ffffff 0%, rgba(39,79,219,0.04) 100%);
+}
+.how-card:hover {
+  border-color: rgba(20,166,248,0.4);
+  box-shadow: 0 4px 24px rgba(20,166,248,0.08);
+}
+.how-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.how-card:nth-child(1)::before { background: linear-gradient(90deg, var(--patina), var(--blue)); }
+.how-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue), var(--royal)); }
+.how-card:nth-child(3)::before { background: linear-gradient(90deg, var(--royal), var(--blue)); }
+
+.how-step-num {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--patina), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.how-card h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+  letter-spacing: -.1px;
+}
+.how-card p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   SUBSECTION HEAD
+───────────────────────────────────────── */
+.subsection-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+.subsection-pip {
+  width: 4px;
+  height: 22px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--patina), var(--blue));
+  flex-shrink: 0;
+}
+.subsection-head h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -.2px;
+}
+
+/* ─────────────────────────────────────────
+   WORKFLOW CARDS
+───────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 680px) { .card-grid { grid-template-columns: 1fr; } }
+
+.wf-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.03) 100%);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s, transform .18s;
+}
+.wf-card:nth-child(3n+1) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(9,212,200,0.035) 100%);
+}
+.wf-card:nth-child(3n+2) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(20,166,248,0.035) 100%);
+}
+.wf-card:nth-child(3n+3) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(39,79,219,0.035) 100%);
+}
+.wf-card:hover {
+  border-color: rgba(9,212,200,0.4);
+  box-shadow: 0 6px 32px rgba(9,212,200,0.1);
+  transform: translateY(-2px);
+}
+.wf-accent { height: 4px; }
+.wf-accent.teal  { background: linear-gradient(90deg, var(--patina), var(--blue)); }
+.wf-accent.blue  { background: linear-gradient(90deg, var(--blue), var(--patina)); }
+.wf-accent.royal { background: linear-gradient(90deg, var(--royal), var(--blue)); }
+.wf-accent.mixed { background: linear-gradient(90deg, var(--patina), var(--royal)); }
+
+.wf-body { padding: 26px 28px 28px; }
+
+.wf-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 14px;
+}
+.wf-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.wf-icon img { width: 28px; height: 28px; object-fit: contain; }
+
+.wf-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.wf-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -.1px;
+  line-height: 1.3;
+}
+.wf-meaning {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.wf-desc {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* Prompt examples inside card */
+.wf-prompts {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.wf-prompts-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.wf-prompts-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prompt-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--royal);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.prompt-toggle:hover { color: var(--blue); }
+
+.wf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.wf-chip {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  background: var(--white);
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.wf-chip.t { border-left: 3px solid var(--patina); }
+.wf-chip.b { border-left: 3px solid var(--blue); }
+.wf-chip.r { border-left: 3px solid var(--royal); }
+
+.prompt-extra {
+  display: none;
+}
+.prompt-group.expanded .prompt-extra {
+  display: inline-flex;
+}
+
+/* Slash command block */
+.wf-slash-command {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(39,79,219,0.03) 100%);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.wf-slash-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.wf-slash-chip {
+  display: inline-block;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 13px;
+  background: var(--white);
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 7px 12px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+/* Output tags */
+.wf-tags-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.wf-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 5px;
+}
+.tag.teal  { background: rgba(9,212,200,0.09);  color: #077E79;  border: 1px solid rgba(9,212,200,0.22); }
+.tag.blue  { background: rgba(20,166,248,0.09);  color: #0A74B8;  border: 1px solid rgba(20,166,248,0.22); }
+.tag.royal { background: rgba(39,79,219,0.09);   color: #1D3BB0;  border: 1px solid rgba(39,79,219,0.2); }
+
+/* Featured card */
+.wf-card.featured {
+  background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(9,212,200,0.03) 55%, rgba(39,79,219,0.03) 100%);
+  border-color: var(--border);
+}
+.wf-card.featured .wf-title { color: var(--black); }
+.wf-card.featured .wf-icon  { background: var(--surface); border-color: var(--border); }
+.wf-card.featured .wf-prompts { background: var(--surface); }
+
+/* ─────────────────────────────────────────
+   BUILT-IN BRANDING SECTION
+───────────────────────────────────────── */
+.builtin-section {
+  margin-top: 24px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(9,212,200,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(9,212,200,0.02) 100%);
+}
+.builtin-banner {
+  background-image: url('slide-bg/wave-teal-bottom.png');
+  background-size: cover;
+  background-position: center top;
+  padding: 40px 40px 36px;
+  border-bottom: 1px solid var(--border);
+}
+.builtin-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 10px;
+}
+.builtin-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 12px;
+}
+.builtin-banner p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.75;
+  max-width: 700px;
+}
+.builtin-body {
+  padding: 32px 40px 40px;
+}
+.builtin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.builtin-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.builtin-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.builtin-icon img { width: 24px; height: 24px; object-fit: contain; }
+.builtin-info {}
+.builtin-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+.builtin-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.builtin-note {
+  background: linear-gradient(135deg, rgba(9,212,200,0.06) 0%, rgba(20,166,248,0.06) 100%);
+  border: 1px solid rgba(9,212,200,0.18);
+  border-radius: 12px;
+  padding: 20px 24px;
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.75;
+}
+.builtin-note strong { color: var(--black); }
+
+/* ─────────────────────────────────────────
+   POWER MOVES
+───────────────────────────────────────── */
+.chain-section {
+  margin-top: 24px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(20,166,248,0.07);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(39,79,219,0.03) 100%);
+}
+.chain-banner {
+  background-image: url('slide-bg/wave-top-right.png');
+  background-size: cover;
+  background-position: center top;
+  padding: 40px 40px 36px;
+  border-bottom: 1px solid var(--border);
+}
+.chain-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--royal);
+  margin-bottom: 10px;
+}
+.chain-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 12px;
+}
+.chain-banner p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.75;
+  max-width: 700px;
+}
+.chain-body {
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flow-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+.flow-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.flow-card > p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.flow-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.flow-chip {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--royal);
+  background: rgba(39,79,219,0.07);
+  border: 1px solid rgba(39,79,219,0.16);
+  padding: 5px 11px;
+  border-radius: 6px;
+}
+.flow-arrow {
+  font-size: 16px;
+  color: var(--patina);
+  font-weight: 700;
+}
+.flow-example {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   TIPS
+───────────────────────────────────────── */
+.tips-section {
+  margin-top: 24px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background-image: url('slide-bg/wave-blue-left.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 32px rgba(39,79,219,0.06);
+}
+.tips-inner {
+  padding: 40px 40px 44px;
+}
+.tips-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--patina);
+  margin-bottom: 6px;
+}
+.tips-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: 32px;
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 620px) { .tips-grid { grid-template-columns: 1fr; } }
+
+.tip {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.tip-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--patina), var(--blue));
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(9,212,200,0.3);
+}
+.tip-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.tip-body p {
+  font-size: 15px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.footer {
+  background: linear-gradient(
+    180deg,
+    #eef7fb 0%,
+    #e8f3ff 60%,
+    #ffffff 100%
+  );
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 80px;
+  border-top: 1px solid rgba(39,79,219,0.12);
+}
+.footer-logo img {
+  height: 24px;
+  display: block;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0A9E95;
+  background: rgba(9,212,200,0.12);
+  border: 1px solid rgba(9,212,200,0.25);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.footer-top-link {
+  font-size: 12px;
+  color: var(--royal);
+  text-decoration: none;
+}
+.footer-top-link:hover { color: var(--blue); }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 980px) {
+  .nav {
+    padding: 0 20px;
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .nav-right {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .builtin-grid {
+    grid-template-columns: 1fr;
+  }
+  .access-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-content { padding: 88px 24px 72px; }
+  .hero h1 { font-size: 42px; line-height: 1.1; }
+  .hero-sub { font-size: 17px; }
+  .main { padding: 0 20px 64px; }
+  .quick-start { grid-template-columns: 1fr; margin-top: -20px; }
+  .access-banner, .access-body, .chain-banner, .chain-body,
+  .builtin-banner, .builtin-body, .tips-inner,
+  .section-banner-inner, .quick-actions-top, .quick-actions-grid {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .wf-body { padding: 22px 22px 24px; }
+  .section-banner-title, .tips-title { font-size: 30px; }
+  .subsection-head h3 { font-size: 21px; }
+  .quick-actions-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .hero, .tips-section, .chain-banner, .access-banner, .section-banner, .builtin-banner {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd" />
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a class="nav-link" href="#getting-started">Getting started</a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+      <a class="nav-link" href="#what-you-can-make">What you can make</a>
+      <a class="nav-link" href="#built-in-branding">Built-in branding</a>
+      <a class="nav-link" href="#power-moves">Power moves</a>
+      <a class="nav-link" href="#tips">Tips</a>
+    </div>
+    <span class="nav-tag">Clozd Design System</span>
+    <span class="nav-badge">Internal use only</span>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Clozd <em>Design Guide</em></h1>
+    <p class="hero-sub">Everything you need to create polished, on-brand Clozd content in Claude — from presentations and reports to one-pagers and decks. Trigger it with a slash command, plain English, or let it happen automatically.</p>
+    <div class="hero-pills">
+      <span class="pill">Claude desktop + Cowork</span>
+      <span class="pill">Slash commands + natural language</span>
+      <span class="pill">Clozd color, type &amp; layout system</span>
+      <span class="pill">Built into key plugin skills</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<div class="main">
+
+  <div class="quick-start">
+    <div class="quick-card">
+      <h4>Making a presentation?</h4>
+      <p>Ask Claude to build a slide deck and add "make it Clozd-branded" — colors, type, and layout are applied automatically.</p>
+    </div>
+    <div class="quick-card">
+      <h4>Creating a doc or report?</h4>
+      <p>Ask for a Word doc or report and include "apply Clozd branding" to get a polished, on-brand deliverable.</p>
+    </div>
+    <div class="quick-card">
+      <h4>Branded asset from research?</h4>
+      <p>Run any sales workflow first, then follow up with "turn this into a Clozd-branded one-pager." Same session, no starting over.</p>
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="quick-actions">
+    <div class="quick-actions-top">
+      <div class="quick-actions-label">Quick actions</div>
+      <h2>Jump straight to what you need</h2>
+      <p>Find the right section for your task and skip the browsing.</p>
+    </div>
+    <div class="quick-actions-grid">
+      <a class="quick-action" href="#getting-started">
+        <div class="quick-action-kicker">Access</div>
+        <div class="quick-action-title">Trigger the skill</div>
+        <div class="quick-action-copy">See all three ways to activate Clozd branding — plugin, slash command, or natural language.</div>
+      </a>
+      <a class="quick-action" href="#what-you-can-make">
+        <div class="quick-action-kicker">Create</div>
+        <div class="quick-action-title">What you can make</div>
+        <div class="quick-action-copy">Decks, reports, one-pagers, and more — with example prompts for each.</div>
+      </a>
+      <a class="quick-action" href="#built-in-branding">
+        <div class="quick-action-kicker">Automatic</div>
+        <div class="quick-action-title">Already built in</div>
+        <div class="quick-action-copy">Some Clozd Sales skills apply the design system automatically. See which ones.</div>
+      </a>
+      <a class="quick-action" href="#power-moves">
+        <div class="quick-action-kicker">Advanced</div>
+        <div class="quick-action-title">Chain workflows</div>
+        <div class="quick-action-copy">Go from research or insight to a polished branded deliverable in a single session.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- GETTING STARTED -->
+  <div class="access-section" id="getting-started">
+    <div class="access-banner">
+      <div class="access-banner-inner">
+        <div class="access-banner-label">Getting started</div>
+        <h2>Three ways to trigger Clozd branding</h2>
+        <p>The applying-clozd-design-system skill can be launched from the plugin menu, a slash command, or by simply asking Claude in plain English. Pick the approach that feels most natural.</p>
+      </div>
+    </div>
+    <div class="access-body">
+      <div>
+        <div class="access-col-label">Plugin path — step by step</div>
+        <div class="step-list">
+          <div class="step-item"><div class="step-num">1</div><p>Open <strong>Claude desktop</strong> and click <strong>Cowork</strong>.</p></div>
+          <div class="step-item"><div class="step-num">2</div><p>Click the <strong>+</strong> button in the chat box.</p></div>
+          <div class="step-item"><div class="step-num">3</div><p>Hover over <strong>Plugins</strong>.</p></div>
+          <div class="step-item"><div class="step-num">4</div><p>Select <strong>applying-clozd-design-system</strong> from the list.</p></div>
+          <div class="step-item"><div class="step-num">5</div><p>Describe what you want Claude to build or brand.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="access-col-label">Two faster ways to trigger it</div>
+        <ul class="launch-list">
+          <li><strong>Slash command</strong> — Type <strong>/applying-clozd-design-system</strong> in the chat box, then give Claude your content or context.</li>
+          <li><strong>Natural language</strong> — Just describe what you want and mention Clozd branding in your prompt. Claude recognizes the request and applies the design system automatically.</li>
+        </ul>
+        <div class="prompt-examples">
+          <div class="prompt-examples-label">Try prompts like</div>
+          <div class="prompt-chips">
+            <span class="prompt-chip teal-accent">Make this Clozd-branded</span>
+            <span class="prompt-chip blue-accent">Apply Clozd branding to this deck</span>
+            <span class="prompt-chip royal-accent">Turn this into a Clozd one-pager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS HEADER -->
+  <div class="section-banner" id="how-it-works">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Process</div>
+      <div class="section-banner-title">How it works</div>
+      <div class="section-banner-sub">Three steps. Any output type. Start from scratch or hand off an existing piece of work.</div>
+    </div>
+  </div>
+
+  <div class="how-grid" style="margin-top: 16px;">
+    <div class="how-card">
+      <div class="how-step-num">01</div>
+      <h4>Trigger the skill</h4>
+      <p>Use the plugin, type <strong>/applying-clozd-design-system</strong> in the chat, or include "Clozd-branded" in your request. Claude picks it up automatically.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-step-num">02</div>
+      <h4>Give Claude the content</h4>
+      <p>Share what you want built — a topic, existing research, a transcript, or a rough draft. The more context, the sharper the output.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-step-num">03</div>
+      <h4>Get a branded deliverable</h4>
+      <p>Claude applies Clozd's color system, typography, layout principles, and brand voice to produce something polished and ready to share.</p>
+    </div>
+  </div>
+
+  <!-- WHAT YOU CAN MAKE HEADER -->
+  <div class="section-banner" id="what-you-can-make">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Outputs</div>
+      <div class="section-banner-title">What you can make</div>
+      <div class="section-banner-sub">From slide decks to reports to one-pagers — anything Claude creates can be made Clozd-branded. Here are the most common use cases.</div>
+    </div>
+  </div>
+
+  <!-- PRESENTATIONS -->
+  <div class="subsection-head">
+    <div class="subsection-pip"></div>
+    <h3>Presentations &amp; Slide Decks</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent teal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Marketing-Loud copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">Branded slide deck</div>
+            <div class="wf-meaning">Build a polished Clozd presentation from scratch</div>
+          </div>
+        </div>
+        <p class="wf-desc">Ask Claude to create a slide deck on any topic and specify Clozd branding. Claude applies the official color system, Inter typography, layout hierarchy, and slide background styles.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip t">create a Clozd-branded deck on win-loss best practices</span>
+            <span class="wf-chip t">build a Clozd slide deck for this executive meeting</span>
+            <span class="wf-chip t prompt-extra">make me a 5-slide Clozd-branded overview for a prospect</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/applying-clozd-design-system</strong> then describe your deck</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag teal">On-brand .pptx</span>
+          <span class="tag teal">Clozd slide layouts</span>
+          <span class="tag teal">Correct colors &amp; type</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Clozd Software copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">Apply branding to existing work</div>
+            <div class="wf-meaning">Restyle a draft or output to match Clozd standards</div>
+          </div>
+        </div>
+        <p class="wf-desc">Already have content — notes, research, a rough deck — and want it to look Clozd-polished? Hand it to Claude and ask it to apply the design system.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip b">apply Clozd branding to this deck</span>
+            <span class="wf-chip b">make these slides look like official Clozd slides</span>
+            <span class="wf-chip b prompt-extra">restyle this presentation with Clozd's design system</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/applying-clozd-design-system</strong> then paste or describe your content</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag blue">Restyled presentation</span>
+          <span class="tag blue">Brand-consistent output</span>
+          <span class="tag blue">Ready to share</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOCUMENTS & REPORTS -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Documents &amp; Reports</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card">
+      <div class="wf-accent royal"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Report copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">Clozd-branded report</div>
+            <div class="wf-meaning">Create a polished Word document with Clozd style</div>
+          </div>
+        </div>
+        <p class="wf-desc">Ask Claude to write a report, brief, or summary and tell it to apply Clozd branding. You'll get a properly formatted .docx with Clozd's typography, heading hierarchy, and voice.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip r">write a Clozd-branded competitive analysis report</span>
+            <span class="wf-chip r">create an on-brand summary doc from these call notes</span>
+            <span class="wf-chip r prompt-extra">turn this research into a Clozd-style Word document</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/applying-clozd-design-system</strong> then describe your report</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag royal">Branded .docx</span>
+          <span class="tag royal">Clozd voice &amp; formatting</span>
+          <span class="tag royal">Ready to send</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent mixed"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Execution copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">One-pagers &amp; landing pages</div>
+            <div class="wf-meaning">Produce customer-ready single-page assets</div>
+          </div>
+        </div>
+        <p class="wf-desc">Turn research, a brief, or a topic into a sharp Clozd-branded one-pager or landing page. Great for prospect handoffs, exec summaries, or internal sell sheets.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip t">turn this account brief into a Clozd one-pager</span>
+            <span class="wf-chip r">build a Clozd-branded landing page for this use case</span>
+            <span class="wf-chip r prompt-extra">make a customer-ready summary page in Clozd style</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/applying-clozd-design-system</strong> then describe your one-pager</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag teal">Branded one-pager</span>
+          <span class="tag teal">Shareable HTML or PDF</span>
+          <span class="tag teal">Clean Clozd layout</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ANY REQUEST -->
+  <div class="subsection-head" style="margin-top: 52px;">
+    <div class="subsection-pip"></div>
+    <h3>Add Clozd Branding to Anything</h3>
+  </div>
+  <div class="card-grid">
+
+    <div class="wf-card featured">
+      <div class="wf-accent" style="background: linear-gradient(90deg, #09D4C8, #274FDB);"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Lightbulb copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">Request branding inline</div>
+            <div class="wf-meaning">No separate step — just say it in your original prompt</div>
+          </div>
+        </div>
+        <p class="wf-desc">You don't have to trigger the design skill separately. Whenever you ask Claude to make something, just include a phrase like <strong>"make it Clozd-branded"</strong> or <strong>"apply Clozd branding"</strong> in your message. Claude will apply the design system as part of the same response.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Phrases that trigger branding</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip t">…make it Clozd-branded</span>
+            <span class="wf-chip b">…apply Clozd branding</span>
+            <span class="wf-chip r">…use the Clozd design system</span>
+            <span class="wf-chip t prompt-extra">…make it look like a Clozd asset</span>
+            <span class="wf-chip b prompt-extra">…style it for Clozd</span>
+            <span class="wf-chip r prompt-extra">…follow Clozd brand guidelines</span>
+          </div>
+        </div>
+
+        <div class="wf-tags-label">Works with any output type</div>
+        <div class="wf-tags">
+          <span class="tag teal">Decks</span>
+          <span class="tag teal">Docs</span>
+          <span class="tag blue">Reports</span>
+          <span class="tag blue">One-pagers</span>
+          <span class="tag royal">Landing pages</span>
+          <span class="tag royal">Any deliverable</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Eye.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">What "Clozd-branded" actually means</div>
+            <div class="wf-meaning">The design standards Claude applies</div>
+          </div>
+        </div>
+        <p class="wf-desc">When you request Clozd branding, Claude applies a complete system — not just colors. Every branded output follows these standards:</p>
+
+        <div class="wf-prompts" style="margin-bottom: 0;">
+          <div class="wf-prompts-label" style="margin-bottom: 10px;">What gets applied</div>
+          <div class="wf-chips" style="flex-direction: column; gap: 6px;">
+            <span class="wf-chip t" style="white-space: normal;"><strong>Colors:</strong> Patina (#09D4C8), Blue (#14A6F8), Royal Blue (#274FDB) — gradient order strictly maintained</span>
+            <span class="wf-chip b" style="white-space: normal;"><strong>Typography:</strong> Inter font family with defined heading hierarchy (48pt, 36pt, 24pt, 16pt)</span>
+            <span class="wf-chip r" style="white-space: normal;"><strong>Layout:</strong> One idea per slide, generous whitespace, minimal bullets, strong visual hierarchy</span>
+            <span class="wf-chip t" style="white-space: normal;"><strong>Voice:</strong> Authentic, direct, confident, solution-focused — no unnecessary jargon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BUILT-IN BRANDING SECTION -->
+  <div class="section-banner" id="built-in-branding">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Already included</div>
+      <div class="section-banner-title">Built-in branding in Clozd Sales skills</div>
+      <div class="section-banner-sub">Several skills in the Clozd Sales plugin already reference the design system. When they produce a deliverable, Clozd branding is applied automatically — no extra step needed.</div>
+    </div>
+  </div>
+
+  <div class="builtin-section">
+    <div class="builtin-banner">
+      <div class="builtin-banner-label">Automatic branding</div>
+      <h2>These skills already apply Clozd design</h2>
+      <p>When you run these Clozd Sales plugin skills and they produce an artifact or document, the output is already styled to Clozd brand standards. You get polished, customer-ready deliverables without having to ask separately for branding.</p>
+    </div>
+    <div class="builtin-body">
+      <div class="builtin-grid">
+        <div class="builtin-card">
+          <div class="builtin-icon"><img src="Icons/Double_Icons_Target copy.png" alt=""></div>
+          <div class="builtin-info">
+            <div class="builtin-name">profiling-prospects</div>
+            <div class="builtin-desc">The Clozd prospect proposal — complete with company research, sizing model, and phased rollout logic — is output as a branded document.</div>
+          </div>
+        </div>
+        <div class="builtin-card">
+          <div class="builtin-icon"><img src="Icons/Double_Icons_Lightbulb 2 copy.png" alt=""></div>
+          <div class="builtin-info">
+            <div class="builtin-name">researching-executive-insights</div>
+            <div class="builtin-desc">Executive insight briefs that surface market shifts, competitive moves, and buyer friction are formatted and branded as Clozd assets.</div>
+          </div>
+        </div>
+        <div class="builtin-card">
+          <div class="builtin-icon"><img src="Icons/Double_Icons_Person 2 copy 3.png" alt=""></div>
+          <div class="builtin-info">
+            <div class="builtin-name">preparing-wiifm-meetings</div>
+            <div class="builtin-desc">Attendee-specific meeting briefs with value mapping and talk tracks are delivered as branded, shareable Clozd documents.</div>
+          </div>
+        </div>
+        <div class="builtin-card">
+          <div class="builtin-icon"><img src="Icons/Double_Icons_Report copy.png" alt=""></div>
+          <div class="builtin-info">
+            <div class="builtin-name">summarizing-existing-client-calls</div>
+            <div class="builtin-desc">Customer call recaps with risks, opportunities, and next steps are output as polished Clozd-branded documents.</div>
+          </div>
+        </div>
+      </div>
+      <div class="builtin-note">
+        <strong>How it works:</strong> These skills internally reference the applying-clozd-design-system skill when generating their final output. That means you can run <strong>/profiling-prospects</strong>, give Claude the prospect context, and receive a fully branded Clozd proposal without ever mentioning design. If you want to refine or extend the output further, you can always follow up with additional design requests in the same conversation.
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER MOVES HEADER -->
+  <div class="section-banner" id="power-moves">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Power moves</div>
+      <div class="section-banner-title">Chain workflows into branded deliverables</div>
+      <div class="section-banner-sub">The most polished outputs come from starting with research or insight, then capping it off with Clozd branding — all in a single conversation.</div>
+    </div>
+  </div>
+
+  <div class="chain-section">
+    <div class="chain-body">
+
+      <div class="flow-card">
+        <h4>Research to branded one-pager</h4>
+        <p>Research an account, then turn the output into a polished Clozd-branded asset.</p>
+        <div class="flow-line">
+          <span class="flow-chip">account-research</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">create-an-asset</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
+        </div>
+        <div class="flow-example">"Research Databricks" → "Turn that into a one-pager for an executive audience" → "Apply the Clozd design system."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Executive brief to branded deck</h4>
+        <p>Build a leadership-level point of view, then package it into a Clozd presentation.</p>
+        <div class="flow-line">
+          <span class="flow-chip">researching-executive-insights</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">create-an-asset</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
+        </div>
+        <div class="flow-example">"Build an executive insight brief for HubSpot" → "Turn that into a 4-slide deck" → "Apply Clozd branding."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Prospect profile to branded proposal</h4>
+        <p>Build the program sizing and narrative, then output a customer-ready branded doc.</p>
+        <div class="flow-line">
+          <span class="flow-chip">profiling-prospects</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
+        </div>
+        <div class="flow-example">"Profile Adobe as a Clozd prospect" → The output is already Clozd-branded. Or ask: "Now turn this into a slide deck and apply Clozd design."</div>
+      </div>
+
+      <div class="flow-card">
+        <h4>Any output, branded in one message</h4>
+        <p>Skip the separate step entirely — just include branding in your original request.</p>
+        <div class="flow-line">
+          <span class="flow-chip">any request</span>
+          <span class="flow-arrow">+</span>
+          <span class="flow-chip">"make it Clozd-branded"</span>
+        </div>
+        <div class="flow-example">"Write a two-page executive summary of our win-loss methodology and make it Clozd-branded."</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIPS HEADER -->
+  <div class="section-banner" id="tips">
+    <div class="section-banner-inner">
+      <div class="section-banner-label">Getting the most out of Claude</div>
+      <div class="section-banner-title">Tips for best results</div>
+      <div class="section-banner-sub">A few simple habits make your branded outputs sharper, more consistent, and easier to use.</div>
+    </div>
+  </div>
+
+  <div class="tips-section">
+    <div class="tips-inner">
+      <div class="tips-grid">
+        <div class="tip">
+          <div class="tip-num">1</div>
+          <div class="tip-body">
+            <h4>You don't need the slash command</h4>
+            <p>Just say "make it Clozd-branded" or "apply Clozd branding" anywhere in your prompt. Claude recognizes design intent in plain English and triggers the skill automatically.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">2</div>
+          <div class="tip-body">
+            <h4>Specify the output type</h4>
+            <p>Claude produces sharper results when you say what you want — a deck, a report, a one-pager, a landing page. "Make this a Clozd-branded slide deck" gives Claude more to work with than just "make it look nice."</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">3</div>
+          <div class="tip-body">
+            <h4>Sales plugin skills already handle branding</h4>
+            <p>Skills like profiling-prospects and researching-executive-insights apply Clozd branding automatically when they produce a deliverable. You only need to invoke the design skill separately if you're starting from scratch or refining raw content.</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-num">4</div>
+          <div class="tip-body">
+            <h4>One conversation, start to finish</h4>
+            <p>Research, write, refine, and brand — all without starting over. Claude retains context across the session, so your final branded output reflects everything that came before it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-logo">
+    <img src="Logos/1_PNG_s/1 Main Horizontal/Clozd Logo Primary.png" alt="Clozd">
+  </div>
+  <div class="footer-right">
+    <span class="footer-badge">Internal use only</span>
+    <span class="footer-note">Questions? Reach your Strategy &amp; Ops admin.</span>
+    <a href="#top" class="footer-top-link">Back to top</a>
+  </div>
+</div>
+
+<script>
+const sections = document.querySelectorAll('#getting-started, #how-it-works, #what-you-can-make, #built-in-branding, #power-moves, #tips');
+const navLinks = document.querySelectorAll('.nav-link');
+const toggleButtons = document.querySelectorAll('.prompt-toggle');
+
+function setActiveLink() {
+  let currentSection = null;
+  const scrollPosition = window.scrollY + 160;
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+
+    if (scrollPosition >= top && scrollPosition < bottom) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + currentSection) {
+      link.classList.add('active');
+    }
+  });
+}
+
+toggleButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const group = button.closest('.prompt-group');
+    if (!group) return;
+
+    group.classList.toggle('expanded');
+    button.textContent = group.classList.contains('expanded')
+      ? 'Show fewer examples'
+      : 'See more examples';
+  });
+});
+
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
+</script>
+
+</body>
+</html>
