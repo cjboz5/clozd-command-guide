@@ -1334,7 +1334,7 @@ body {
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Claude <em>Command Guide</em></h1>
-    <p class="hero-sub">A practical guide to Clozd's seller workflows in Claude. Research accounts, prep calls, coach deals, and turn insight into polished deliverables — from a single chat.</p>
+    <p class="hero-sub">A practical guide to Clozd's seller workflows in Claude. Research accounts, prep calls, review pipeline, analyze calls, and turn insight into polished deliverables — from a single chat.</p>
     <div class="hero-pills">
       <span class="pill">Claude desktop + Cowork</span>
       <span class="pill">Slash commands + natural language</span>
@@ -1359,8 +1359,8 @@ body {
       <p>Start with <strong>call-prep</strong> to get attendee context, agenda ideas, and sharper questions.</p>
     </div>
     <div class="quick-card">
-      <h4>Need something customer-ready?</h4>
-      <p>Start with <strong>create-an-asset</strong> and then apply Clozd design standards.</p>
+      <h4>Need a cleaner read on the business?</h4>
+      <p>Use <strong>reviewing-pipeline</strong> or <strong>reviewing-gong-call</strong> to inspect pipeline health or analyze a specific call.</p>
     </div>
   </div>
 
@@ -1375,22 +1375,22 @@ body {
       <a class="quick-action" href="#workflows">
         <div class="quick-action-kicker">Research</div>
         <div class="quick-action-title">Research an account</div>
-        <div class="quick-action-copy">Go straight to account and prospect research workflows.</div>
+        <div class="quick-action-copy">Get fast account context, prospect intel, and sharper outreach angles.</div>
       </a>
       <a class="quick-action" href="#workflows">
         <div class="quick-action-kicker">Meetings</div>
         <div class="quick-action-title">Prep a call</div>
-        <div class="quick-action-copy">Jump to meeting prep, discovery support, and stakeholder context.</div>
+        <div class="quick-action-copy">Jump to meeting prep, stakeholder context, and discovery support.</div>
       </a>
       <a class="quick-action" href="#workflows">
-        <div class="quick-action-kicker">Outreach</div>
-        <div class="quick-action-title">Write outreach</div>
-        <div class="quick-action-copy">Find workflows for personalized emails, targeting, and next steps.</div>
+        <div class="quick-action-kicker">Pipeline</div>
+        <div class="quick-action-title">Review pipeline</div>
+        <div class="quick-action-copy">See weighted forecast, stage mix, quota pacing, and obvious deal mismatches.</div>
       </a>
-      <a class="quick-action" href="#integrations">
-        <div class="quick-action-kicker">Data</div>
-        <div class="quick-action-title">Use ZoomInfo or Gong</div>
-        <div class="quick-action-copy">See where integrations strengthen research, enrichment, and execution.</div>
+      <a class="quick-action" href="#workflows">
+        <div class="quick-action-kicker">Calls</div>
+        <div class="quick-action-title">Analyze a call</div>
+        <div class="quick-action-copy">Review a Gong call for MEDDPICC signals and the most important next steps.</div>
       </a>
     </div>
   </div>
@@ -1425,9 +1425,9 @@ body {
         <div class="prompt-examples">
           <div class="prompt-examples-label">Try prompts like</div>
           <div class="prompt-chips">
-            <span class="prompt-chip teal-accent">Research Gong before my meeting</span>
-            <span class="prompt-chip blue-accent">Prep me for my call with Adobe</span>
-            <span class="prompt-chip royal-accent">Build a Clozd-branded deck</span>
+            <span class="prompt-chip teal-accent">Prep me for my call with Adobe</span>
+            <span class="prompt-chip blue-accent">Review my pipeline</span>
+            <span class="prompt-chip royal-accent">Analyze my Gong call from yesterday</span>
           </div>
         </div>
       </div>
@@ -1452,7 +1452,7 @@ body {
     <div class="how-card">
       <div class="how-step-num">02</div>
       <h4>Give Claude the context</h4>
-      <p>Start with the account, meeting, deal, or asset you care about. More context means sharper, more useful output.</p>
+      <p>Start with the account, meeting, deal, call, or asset you care about. More context means sharper, more useful output.</p>
     </div>
     <div class="how-card">
       <div class="how-step-num">03</div>
@@ -1853,11 +1853,11 @@ body {
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Check_icon.png" alt=""></div>
           <div class="wf-title-wrap">
-            <div class="wf-title">MEDDPICCC-coach <span class="placeholder-badge">coming soon</span></div>
-            <div class="wf-meaning">Inspect a deal for qualification gaps</div>
+            <div class="wf-title">reviewing-gong-call</div>
+            <div class="wf-meaning">Analyze a Gong call for qualification and next steps</div>
           </div>
         </div>
-        <p class="wf-desc">Evaluate a call, notes, or transcript against MEDDPICCC to identify qualification gaps, strengths, and coaching opportunities.</p>
+        <p class="wf-desc">Pull Gong call data, review a specific call, score it against MEDDPICC, and summarize the most important buyer-stated and rep-recommended next steps.</p>
 
         <div class="wf-prompts prompt-group">
           <div class="wf-prompts-head">
@@ -1865,22 +1865,23 @@ body {
             <button class="prompt-toggle" type="button">See more examples</button>
           </div>
           <div class="wf-chips">
-            <span class="wf-chip r">evaluate this call against MEDDPICCC</span>
-            <span class="wf-chip r">what's missing in this deal</span>
-            <span class="wf-chip r prompt-extra">coach me on qualification gaps from this transcript</span>
+            <span class="wf-chip r">analyze my Gong call from yesterday</span>
+            <span class="wf-chip r">review this Gong call for MEDDPICC gaps</span>
+            <span class="wf-chip r prompt-extra">what are the next steps from my call with Adobe</span>
           </div>
         </div>
 
         <div class="wf-slash-command">
           <div class="wf-slash-label">Slash command</div>
-          <div class="wf-slash-chip">Type <strong>/MEDDPICCC-coach</strong> in Claude</div>
+          <div class="wf-slash-chip">Type <strong>/reviewing-gong-call</strong> in Claude</div>
         </div>
 
-        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
-          <span class="tag royal">Deal inspection</span>
-          <span class="tag royal">Qualification gaps</span>
-          <span class="tag royal">Rep coaching</span>
+          <span class="tag royal">MEDDPICC review</span>
+          <span class="tag royal">Call evidence</span>
+          <span class="tag royal">Next steps</span>
+          <span class="tag royal">Call diagnostics</span>
         </div>
       </div>
     </div>
@@ -1890,6 +1891,45 @@ body {
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_Scale Unbalanced copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">reviewing-pipeline</div>
+            <div class="wf-meaning">Inspect current-quarter pipeline health</div>
+          </div>
+        </div>
+        <p class="wf-desc">Pull Salesforce pipeline data and review current-quarter coverage with weighted forecast, expected percent to quota, stage breakdown, and obvious mismatches like advanced deals still sitting in discovery.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip t">review my pipeline</span>
+            <span class="wf-chip r">how am I pacing to quota this quarter</span>
+            <span class="wf-chip r prompt-extra">show me stage mismatches in my current-quarter pipeline</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/reviewing-pipeline</strong> in Claude</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag royal">Weighted forecast</span>
+          <span class="tag royal">% to quota</span>
+          <span class="tag royal">Stage mix</span>
+          <span class="tag royal">Mismatch detection</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_StopWatch.png" alt=""></div>
           <div class="wf-title-wrap">
             <div class="wf-title">deal-intervention <span class="placeholder-badge">coming soon</span></div>
             <div class="wf-meaning">Recover a stalled deal</div>
@@ -1916,9 +1956,9 @@ body {
 
         <div class="wf-tags-label">Best for</div>
         <div class="wf-tags">
-          <span class="tag royal">Stuck deals</span>
-          <span class="tag royal">Recovery plans</span>
-          <span class="tag royal">Next-step strategy</span>
+          <span class="tag blue">Stuck deals</span>
+          <span class="tag blue">Recovery plans</span>
+          <span class="tag blue">Next-step strategy</span>
         </div>
       </div>
     </div>
@@ -2148,16 +2188,16 @@ body {
       </div>
 
       <div class="flow-card">
-        <h4>Customer account review</h4>
-        <p>Summarize the call, evaluate qualification, then create the follow-up material.</p>
+        <h4>Call review to follow-up</h4>
+        <p>Analyze the call, identify qualification gaps and next steps, then turn the output into a follow-up asset.</p>
         <div class="flow-line">
-          <span class="flow-chip">summarizing-existing-client-calls</span>
-          <span class="flow-arrow">→</span>
-          <span class="flow-chip">MEDDPICCC-coach</span>
+          <span class="flow-chip">reviewing-gong-call</span>
           <span class="flow-arrow">→</span>
           <span class="flow-chip">create-an-asset</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-chip">applying-clozd-design-system</span>
         </div>
-        <div class="flow-example">"Summarize this customer call" → "Evaluate it against MEDDPICCC" → "Turn takeaways into a follow-up deck."</div>
+        <div class="flow-example">"Analyze my Gong call with Adobe" → "Turn the takeaways into a follow-up one-pager" → "Apply the Clozd design system."</div>
       </div>
 
     </div>
@@ -2264,39 +2304,6 @@ body {
     </div>
   </div>
 
-  <div class="subsection-head" style="margin-top: 52px;">
-    <div class="subsection-pip"></div>
-    <h3>Gong</h3>
-  </div>
-
-  <div class="integration-grid">
-    <div class="wf-card">
-      <div class="wf-accent" style="background: linear-gradient(90deg, #09D4C8, #14A6F8);"></div>
-      <div class="wf-body">
-        <div class="wf-icon-row">
-          <div class="integration-logo">
-            <img src="3rdpartylogos/gonglogo.png" alt="Gong logo">
-          </div>
-          <div class="wf-title-wrap">
-            <div class="wf-title">gong <span class="placeholder-badge">coming soon</span></div>
-            <div class="wf-meaning">Use call data and conversation signals to coach deals</div>
-          </div>
-        </div>
-
-        <p class="integration-summary">Use Gong conversation data to strengthen meeting prep, post-call analysis, deal coaching, and risk detection inside Claude workflows.</p>
-
-        <div class="wf-tags-label">Potential use cases</div>
-        <div class="wf-tags">
-          <span class="tag teal">Call summaries</span>
-          <span class="tag teal">Objection analysis</span>
-          <span class="tag teal">Deal coaching</span>
-          <span class="tag teal">Qualification reviews</span>
-          <span class="tag teal">Risk detection</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- TIPS HEADER -->
   <div class="section-banner" id="tips">
     <div class="section-banner-inner">
@@ -2313,7 +2320,7 @@ body {
           <div class="tip-num">1</div>
           <div class="tip-body">
             <h4>Lead with the job to be done</h4>
-            <p>Say what you want clearly — research the account, prep the meeting, coach the deal, or build the asset. Claude will pick the right workflow.</p>
+            <p>Say what you want clearly — research the account, prep the meeting, review pipeline, analyze a call, or build the asset. Claude will pick the right workflow.</p>
           </div>
         </div>
         <div class="tip">
@@ -2327,14 +2334,14 @@ body {
           <div class="tip-num">3</div>
           <div class="tip-body">
             <h4>Add context when it matters</h4>
-            <p>A bit of extra detail about the account, audience, deal stage, or competitor usually makes the output significantly sharper.</p>
+            <p>A bit of extra detail about the account, audience, deal stage, or call usually makes the output significantly sharper.</p>
           </div>
         </div>
         <div class="tip">
           <div class="tip-num">4</div>
           <div class="tip-body">
             <h4>Chain workflows together</h4>
-            <p>Research can become prep. Prep can become outreach. Insight can become a polished, Clozd-branded deliverable — all in one session.</p>
+            <p>Research can become prep. A call review can become a follow-up asset. Insight can become a polished, Clozd-branded deliverable — all in one session.</p>
           </div>
         </div>
       </div>
