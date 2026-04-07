@@ -1360,7 +1360,7 @@ body {
     </div>
     <div class="quick-card">
       <h4>Need a cleaner read on the business?</h4>
-      <p>Use <strong>reviewing-pipeline</strong> or <strong>reviewing-gong-calls</strong> to inspect pipeline health or analyze a specific call.</p>
+      <p>Use <strong>reviewing-pipeline</strong>, <strong>reviewing-gong-calls</strong>, or <strong>identifying-risk-deals</strong> to inspect pipeline health, analyze a specific call, or surface at-risk opportunities.</p>
     </div>
   </div>
 
@@ -1888,6 +1888,45 @@ body {
       </div>
     </div>
 
+    <div class="wf-card">
+      <div class="wf-accent blue"></div>
+      <div class="wf-body">
+        <div class="wf-icon-row">
+          <div class="wf-icon"><img src="Icons/Double_Icons_Talk copy.png" alt=""></div>
+          <div class="wf-title-wrap">
+            <div class="wf-title">coaching-reps-on-calls</div>
+            <div class="wf-meaning">Coach a rep from one call or recent call patterns</div>
+          </div>
+        </div>
+        <p class="wf-desc">Review one Gong call or a recent sample of calls to identify repeatable strengths, weaknesses, missed opportunities, and practical talk-track improvements for future conversations.</p>
+
+        <div class="wf-prompts prompt-group">
+          <div class="wf-prompts-head">
+            <div class="wf-prompts-label">Plain English prompts</div>
+            <button class="prompt-toggle" type="button">See more examples</button>
+          </div>
+          <div class="wf-chips">
+            <span class="wf-chip b">coach this rep based on recent Gong calls</span>
+            <span class="wf-chip b">give me feedback on this seller's call execution</span>
+            <span class="wf-chip b prompt-extra">what patterns should I coach on from this rep's last 30 days of calls</span>
+          </div>
+        </div>
+
+        <div class="wf-slash-command">
+          <div class="wf-slash-label">Slash command</div>
+          <div class="wf-slash-chip">Type <strong>/coaching-reps-on-calls</strong> in Claude</div>
+        </div>
+
+        <div class="wf-tags-label">You get</div>
+        <div class="wf-tags">
+          <span class="tag blue">Coaching readout</span>
+          <span class="tag blue">Pattern feedback</span>
+          <span class="tag blue">Talk-track improvements</span>
+          <span class="tag blue">Manager coaching prep</span>
+        </div>
+      </div>
+    </div>
+
     <div class="wf-card" id="reviewing-pipeline">
       <div class="wf-accent mixed"></div>
       <div class="wf-body">
@@ -1928,16 +1967,16 @@ body {
     </div>
 
     <div class="wf-card">
-      <div class="wf-accent blue"></div>
+      <div class="wf-accent mixed"></div>
       <div class="wf-body">
         <div class="wf-icon-row">
           <div class="wf-icon"><img src="Icons/Double_Icons_StopWatch.png" alt=""></div>
           <div class="wf-title-wrap">
-            <div class="wf-title">deal-intervention <span class="placeholder-badge">coming soon</span></div>
-            <div class="wf-meaning">Recover a stalled deal</div>
+            <div class="wf-title">identifying-risk-deals</div>
+            <div class="wf-meaning">Flag open opportunities that may be at risk</div>
           </div>
         </div>
-        <p class="wf-desc">Assess a deal that's stalled or gone sideways, identify the most likely blockers, and get a concrete action plan to regain momentum.</p>
+        <p class="wf-desc">Review a rep's recent Gong calls and linked open opportunities to flag credible buyer-side risk signals, show where the risk appears, and recommend concrete intervention next steps.</p>
 
         <div class="wf-prompts prompt-group">
           <div class="wf-prompts-head">
@@ -1945,22 +1984,23 @@ body {
             <button class="prompt-toggle" type="button">See more examples</button>
           </div>
           <div class="wf-chips">
-            <span class="wf-chip t">help me intervene on this stalled deal</span>
-            <span class="wf-chip r">what's likely blocking this opportunity</span>
-            <span class="wf-chip r prompt-extra">give me a plan to recover momentum here</span>
+            <span class="wf-chip t">review the last week of calls and flag at-risk deals</span>
+            <span class="wf-chip r">show me pipeline opportunities that may be at risk</span>
+            <span class="wf-chip r prompt-extra">identify buyer-stated risk signals in this rep's recent open opportunities</span>
           </div>
         </div>
 
         <div class="wf-slash-command">
           <div class="wf-slash-label">Slash command</div>
-          <div class="wf-slash-chip">Type <strong>/deal-intervention</strong> in Claude</div>
+          <div class="wf-slash-chip">Type <strong>/identifying-risk-deals</strong> in Claude</div>
         </div>
 
-        <div class="wf-tags-label">Best for</div>
+        <div class="wf-tags-label">You get</div>
         <div class="wf-tags">
-          <span class="tag blue">Stuck deals</span>
-          <span class="tag blue">Recovery plans</span>
-          <span class="tag blue">Next-step strategy</span>
+          <span class="tag royal">At-risk opportunities</span>
+          <span class="tag royal">Risk evidence</span>
+          <span class="tag royal">Linked calls</span>
+          <span class="tag royal">Intervention next steps</span>
         </div>
       </div>
     </div>
@@ -2008,44 +2048,6 @@ body {
           <span class="tag teal">Renewals</span>
           <span class="tag teal">Upsells</span>
           <span class="tag teal">Strategic account reviews</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="wf-card">
-      <div class="wf-accent blue"></div>
-      <div class="wf-body">
-        <div class="wf-icon-row">
-          <div class="wf-icon"><img src="Icons/Double_Icons_Leave-churn copy.png" alt=""></div>
-          <div class="wf-title-wrap">
-            <div class="wf-title">churn-alert <span class="placeholder-badge">coming soon</span></div>
-            <div class="wf-meaning">Spot churn risk early</div>
-          </div>
-        </div>
-        <p class="wf-desc">Analyze customer notes, conversation signals, and account context to identify churn risk and recommend mitigation steps before it's too late.</p>
-
-        <div class="wf-prompts prompt-group">
-          <div class="wf-prompts-head">
-            <div class="wf-prompts-label">Plain English prompts</div>
-            <button class="prompt-toggle" type="button">See more examples</button>
-          </div>
-          <div class="wf-chips">
-            <span class="wf-chip b">is this account showing churn risk</span>
-            <span class="wf-chip b">what retention red flags do you see here</span>
-            <span class="wf-chip b prompt-extra">analyze this call for churn signals</span>
-          </div>
-        </div>
-
-        <div class="wf-slash-command">
-          <div class="wf-slash-label">Slash command</div>
-          <div class="wf-slash-chip">Type <strong>/churn-alert</strong> in Claude</div>
-        </div>
-
-        <div class="wf-tags-label">Best for</div>
-        <div class="wf-tags">
-          <span class="tag blue">Retention risk</span>
-          <span class="tag blue">Early warning signs</span>
-          <span class="tag blue">Mitigation ideas</span>
         </div>
       </div>
     </div>
